@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ArrayList\Contracts\Interfaces\" />
+    <Folder Include="Graphs\Contracts\Interfaces\" />
+    <Folder Include="HashTable\Contracts\Interfaces\" />
+    <Folder Include="Heap\Contracts\Interfaces\" />
+    <Folder Include="LinekedList\Contracts\Interfaces\" />
+    <Folder Include="Queue\Contracts\Interfaces\" />
+    <Folder Include="Stack\Contracts\Interfaces\" />
+    <Folder Include="StringBuilder\Contracts\Interfaces\" />
+    <Folder Include="Trees\Contracts\Interfaces\" />
+    <Folder Include="Trie\Contracts\Interfaces\" />
+  </ItemGroup>
+
+</Project>
