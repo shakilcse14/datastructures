@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using DataStructures.Core.ArrayList.Contracts.Interfaces;
 
 namespace DataStructures.Core.ArrayList
@@ -7,7 +8,7 @@ namespace DataStructures.Core.ArrayList
     /// Time complexity O(n)
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class ArrayList<T> : IArrayList<T>
+    public class ArrayList<T> : IArrayList<T>, IEnumerable
     {
         private int _maxSize = 0;
         private T[] _arrayList;
@@ -36,8 +37,8 @@ namespace DataStructures.Core.ArrayList
             if (_currentLength >= _maxSize)
             {
                 Console.WriteLine("Doubling the size ... ");
-                var tempArrayList = new T[_maxSize * 2];
                 _maxSize *= 2;
+                var tempArrayList = new T[_maxSize];
                 Array.Copy(_arrayList, tempArrayList, _arrayList.Length);
 
                 _arrayList = tempArrayList;
@@ -45,6 +46,8 @@ namespace DataStructures.Core.ArrayList
 
             _arrayList[_currentLength] = item;
             _currentLength++;
+
+            Console.WriteLine($"Current: {_currentLength} MaxSize: {_maxSize}");
         }
 
         public T this[int index]
@@ -61,23 +64,96 @@ namespace DataStructures.Core.ArrayList
             }
         }
 
+        public int Length => _currentLength;
+
         /// <summary>
         /// Time complexity O(n)
         /// </summary>
         /// <param name="index"></param>
         public void Remove(int index)
         {
-            throw new System.NotImplementedException();
+            CheckSize(index);
+
+            if (_currentLength - 1 == index)
+                _arrayList[index] = default;
+            else
+            {
+                for (var i = index; i < _currentLength - 1; i++)
+                {
+                    _arrayList[i] = _arrayList[i + 1];
+                }
+
+                _arrayList[_currentLength - 1] = default;
+            }
+
+            if (_currentLength * 4 == _maxSize)
+            {
+                Console.WriteLine("Halving the size ... ");
+                _maxSize /= 2;
+                var tempArrayList = new T[_maxSize];
+                Array.Copy(_arrayList, 0, tempArrayList, 0, _maxSize);
+
+                _arrayList = tempArrayList;
+            }
+
+            _currentLength--;
+
+            Console.WriteLine($"Current: {_currentLength} MaxSize: {_maxSize}");
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return new ArrayListEnumerator<T>(_arrayList, _currentLength);
         }
 
         #region Private Methods
 
         private void CheckSize(int index)
         {
-            if (index > _currentLength)
-                throw new IndexOutOfRangeException("Out of range");
+            if (index >= _currentLength)
+                throw new IndexOutOfRangeException("Index out of range");
         }
 
         #endregion
+    }
+
+    public class ArrayListEnumerator<T> : IEnumerator
+    {
+        private readonly T[] _arrayList;
+        private readonly int _length;
+        private int _position = -1;
+
+        public ArrayListEnumerator(T[] arrayList, int length)
+        {
+            _arrayList = arrayList;
+            _length = length;
+        }
+
+        public bool MoveNext()
+        {
+            _position++;
+            return _position < _length;
+        }
+
+        public void Reset()
+        {
+            _position = -1;
+        }
+
+        public object Current
+        {
+            get
+            {
+                try
+                {
+                    return _arrayList[_position];
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    throw new InvalidOperationException();
+                }
+            }
+        }
+
     }
 }

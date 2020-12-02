@@ -6,7 +6,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{F02DF264-E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructures.Core", "DataStructures.Core\DataStructures.Core.csproj", "{5198B6DA-632D-4348-A820-DE9062CFB1C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.Main", "Learning.Main\Learning.Main.csproj", "{7DB95F95-2177-4C7E-83A3-0432063D0A39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.Main", "Learning.Main\Learning.Main.csproj", "{7DB95F95-2177-4C7E-83A3-0432063D0A39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures.Core.Tests", "DataStructures.Core.Tests\DataStructures.Core.Tests.csproj", "{AAD61F39-4DCE-4B5E-9358-EED85FAA5B3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,12 +24,17 @@ Global
 		{7DB95F95-2177-4C7E-83A3-0432063D0A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DB95F95-2177-4C7E-83A3-0432063D0A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DB95F95-2177-4C7E-83A3-0432063D0A39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAD61F39-4DCE-4B5E-9358-EED85FAA5B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD61F39-4DCE-4B5E-9358-EED85FAA5B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD61F39-4DCE-4B5E-9358-EED85FAA5B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD61F39-4DCE-4B5E-9358-EED85FAA5B3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5198B6DA-632D-4348-A820-DE9062CFB1C0} = {F02DF264-E0B0-40A2-AB94-1EBB2494EEAC}
+		{AAD61F39-4DCE-4B5E-9358-EED85FAA5B3C} = {F02DF264-E0B0-40A2-AB94-1EBB2494EEAC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6DCD84D8-6354-4A55-B76A-5229E22FE528}
