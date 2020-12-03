@@ -1,6 +1,6 @@
 ﻿namespace DataStructures.Core.ArrayList.Contracts.Interfaces
 {
-    public interface IArrayList<T>
+    public interface IArrayList<in T>
     {
         void Add(T item);
         void Remove(int index);
