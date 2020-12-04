@@ -5,8 +5,8 @@ namespace DataStructures.Core.LinkedList
 {
     public class SinglyLinkedList<T> : ILinkedList<T>
     {
-        private Node<T> _headNode = null;
-        private Node<T> _tailNode = null;
+        private Node<T> _headNode;
+        private Node<T> _tailNode;
 
         public SinglyLinkedList() { }
 
@@ -25,24 +25,62 @@ namespace DataStructures.Core.LinkedList
             }
         }
 
-        public void AddAfter()
+        public void Add(T data, int position)
         {
-            throw new System.NotImplementedException();
+            if (position == 1)
+            {
+                AddFirst(data);
+                return;
+            }
+
+            var currentPosition = 1;
+            var currentNode = _headNode;
+            while (currentPosition < position && currentNode != null)
+            {
+                currentPosition++;
+                if (currentPosition == position)
+                {
+                    var node = new Node<T>(data)
+                    {
+                        NextNode = currentNode.NextNode
+                    };
+                    currentNode.NextNode = node;
+                    return;
+                }
+
+                currentNode = currentNode.NextNode;
+            }
+
+            throw new InvalidOperationException();
         }
 
-        public void AddBefore()
+        public void AddFirst(T data)
         {
-            throw new System.NotImplementedException();
+            if (_headNode == null)
+            {
+                _headNode = new Node<T>(data);
+                _tailNode = _headNode;
+            }
+            else
+            {
+                var node = new Node<T>(data)
+                {
+                    NextNode = _headNode
+                };
+                _headNode = node;
+            }
         }
 
-        public void AddFirst()
+        public void AddLast(T data)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void AddLast()
-        {
-            throw new System.NotImplementedException();
+            if (_tailNode == null)
+                _headNode = _tailNode = new Node<T>(data);
+            else
+            {
+                var node = new Node<T>(data);
+                _tailNode.NextNode = node;
+                _tailNode = node;
+            }
         }
 
         public void Clear()
@@ -69,14 +107,19 @@ namespace DataStructures.Core.LinkedList
             if (_headNode == null || _tailNode == null)
                 throw new InvalidOperationException();
 
-            var node = _headNode;
-            while (node.NextNode != _tailNode)
+            var currentNode = _headNode;
+            while (currentNode.NextNode != _tailNode)
             {
-                node = node.NextNode;
+                currentNode = currentNode.NextNode;
             }
         }
 
-        public T Find()
+        public T Find(int position)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public T Find(T data)
         {
             throw new System.NotImplementedException();
         }

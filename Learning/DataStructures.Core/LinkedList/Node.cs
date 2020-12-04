@@ -6,10 +6,7 @@
         public Node<T> PreviousNode { get; set; }
         public T Data { get; set; }
 
-        public Node()
-        {
-            
-        }
+        public Node() { }
 
         public Node(T data)
         {

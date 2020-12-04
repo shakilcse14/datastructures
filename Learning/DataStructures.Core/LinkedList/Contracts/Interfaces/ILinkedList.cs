@@ -3,14 +3,14 @@
     public interface ILinkedList<T>
     {
         void Add(T data);
-        void AddAfter();
-        void AddBefore();
-        void AddFirst();
-        void AddLast();
+        void Add(T data, int position);
+        void AddFirst(T data);
+        void AddLast(T data);
         void Clear();
         void Remove(T data);
         void RemoveFirst();
         void RemoveLast();
-        T Find();
+        T Find(int position);
+        T Find(T data);
     }
 }
