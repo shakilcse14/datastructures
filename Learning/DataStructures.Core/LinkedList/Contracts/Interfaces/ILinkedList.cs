@@ -2,6 +2,7 @@
 {
     public interface ILinkedList<T>
     {
+        void Add(T data);
         void AddAfter();
         void AddBefore();
         void AddFirst();

@@ -2,9 +2,9 @@
 
 namespace DataStructures.Core.LinkedList
 {
-    public class DoublyLinkedList<T>
+    public class CircularLinkedList<T>
     {
-        public DoublyLinkedList()
+        public CircularLinkedList()
         {
             
         }
