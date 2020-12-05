@@ -50,6 +50,11 @@ namespace DataStructures.Core.ArrayList
             Console.WriteLine($"Current: {_currentLength} MaxSize: {_maxSize}");
         }
 
+        /// <summary>
+        /// Time Complexity O(1)
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public T this[int index]
         {
             get
@@ -101,6 +106,10 @@ namespace DataStructures.Core.ArrayList
             Console.WriteLine($"Current: {_currentLength} MaxSize: {_maxSize}");
         }
 
+        /// <summary>
+        /// Time Complexity O(n)
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator GetEnumerator()
         {
             return new ArrayListEnumerator<T>(_arrayList, _currentLength);
@@ -140,7 +149,9 @@ namespace DataStructures.Core.ArrayList
             _position = -1;
         }
 
-        public object Current
+        object IEnumerator.Current => Current;
+
+        public T Current
         {
             get
             {
@@ -154,6 +165,5 @@ namespace DataStructures.Core.ArrayList
                 }
             }
         }
-
     }
 }

@@ -8,9 +8,10 @@
         void AddLast(T data);
         void Clear();
         void Remove(T data);
+        void Remove(int position);
         void RemoveFirst();
         void RemoveLast();
         T Find(int position);
-        T Find(T data);
+        bool Find(T data);
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace DataStructures.Core.LinkedList
 {
-    internal class Node<T>
+    public class Node<T>
     {
         public Node<T> NextNode { get; set; }
         public Node<T> PreviousNode { get; set; }

@@ -1,11 +1,82 @@
 ﻿using System;
 using DataStructures.Core.ArrayList;
+using DataStructures.Core.LinkedList;
 
 namespace Learning.Main
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            //TestArrayList();
+
+            //TestSinglyLinkedList();
+
+            //TestDoublyLinkedList();
+
+            Console.ReadLine();
+        }
+
+        static void TestDoublyLinkedList()
+        {
+            #region DoublyLinkedList
+
+            var doublyLinkedList = new DoublyLinkedList<string>();
+            doublyLinkedList.Add("A1");
+            doublyLinkedList.Add("A2");
+            doublyLinkedList.Add("A3");
+            doublyLinkedList.Add("AM_2", 2);
+            doublyLinkedList.AddLast("AL");
+            doublyLinkedList.AddFirst("A0");
+            foreach (var single in doublyLinkedList)
+            {
+                Console.WriteLine(single);
+            }
+            Console.WriteLine("\n");
+            doublyLinkedList.Remove(2);
+            doublyLinkedList.RemoveLast();
+            doublyLinkedList.Remove(2);
+            doublyLinkedList.RemoveFirst();
+            foreach (var single in doublyLinkedList)
+            {
+                Console.WriteLine(single);
+            }
+
+            Console.WriteLine("\n" + doublyLinkedList.Find(1));
+
+            #endregion
+        }
+        static void TestSinglyLinkedList()
+        {
+            #region SinglyLinkedList
+
+            var singlyLinkedList = new SinglyLinkedList<string>();
+            singlyLinkedList.Add("A1");
+            singlyLinkedList.Add("A2");
+            singlyLinkedList.Add("A3");
+            singlyLinkedList.Add("AM_2", 2);
+            singlyLinkedList.AddLast("AL");
+            singlyLinkedList.AddFirst("A0");
+            foreach (var single in singlyLinkedList)
+            {
+                Console.WriteLine(single);
+            }
+            Console.WriteLine("\n");
+            singlyLinkedList.Remove(2);
+            singlyLinkedList.RemoveLast();
+            singlyLinkedList.Remove(2);
+            singlyLinkedList.RemoveFirst();
+            foreach (var single in singlyLinkedList)
+            {
+                Console.WriteLine(single);
+            }
+
+            Console.WriteLine("\n" + singlyLinkedList.Find(2));
+
+            #endregion
+        }
+
+        static void TestArrayList()
         {
             #region ArrayList
 
@@ -43,8 +114,6 @@ namespace Learning.Main
             Console.WriteLine("Length: " + arrayList.Length);
 
             #endregion
-
-            Console.ReadLine();
         }
     }
 }
