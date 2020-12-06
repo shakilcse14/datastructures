@@ -7,11 +7,11 @@
         void AddFirst(T data);
         void AddLast(T data);
         void Clear();
-        void Remove(T data);
+        void Remove(object data, string propertyName = "");
         void Remove(int position);
         void RemoveFirst();
         void RemoveLast();
         T Find(int position);
-        bool Find(T data);
+        T Find(object data, string propertyName = "");
     }
 }

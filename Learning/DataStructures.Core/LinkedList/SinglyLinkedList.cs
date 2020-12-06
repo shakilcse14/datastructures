@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DataStructures.Core.LinkedList.Contracts.Interfaces;
 
 namespace DataStructures.Core.LinkedList
@@ -106,10 +107,48 @@ namespace DataStructures.Core.LinkedList
             _tailNode = null;
         }
 
-        // TODO - Predicate or something
-        public void Remove(T data)
+        /// <summary>
+        /// Time Complexity O(n)
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="propertyName"></param>
+        public void Remove(object data, string propertyName = "")
         {
-            throw new System.NotImplementedException();
+            var currentNode = _headNode;
+            var prevNode = _headNode;
+            if (!string.IsNullOrEmpty(propertyName))
+            {
+                if (!typeof(T).GetProperties()
+                    .Any(x => x.Name.Equals(propertyName)))
+                    throw new InvalidOperationException();
+
+                while (currentNode != null)
+                {
+                    if (currentNode.Data.GetType()
+                        .GetProperty(propertyName)
+                        .GetValue(currentNode.Data)
+                        .Equals(data))
+                    {
+                        Remove(currentNode, prevNode);
+                    }
+
+                    currentNode = currentNode.NextNode;
+                }
+            }
+            else
+            {
+                while (currentNode != null)
+                {
+                    if (currentNode.Data.Equals(data))
+                    {
+                        Remove(currentNode, prevNode);
+                        return;
+                    }
+
+                    currentNode = currentNode.NextNode;
+                }
+            }
+            throw new InvalidOperationException();
         }
 
         /// <summary>
@@ -118,7 +157,7 @@ namespace DataStructures.Core.LinkedList
         /// <param name="position"></param>
         public void Remove(int position)
         {
-            if(position == 1)
+            if (position == 1)
             {
                 if (_headNode == _tailNode)
                     _headNode = _tailNode = _headNode.NextNode;
@@ -134,9 +173,7 @@ namespace DataStructures.Core.LinkedList
             {
                 if (currentPosition == position)
                 {
-                    prevNode.NextNode = currentNode.NextNode;
-                    if (currentNode == _tailNode)
-                        _tailNode = prevNode;
+                    Remove(currentNode, prevNode);
                     return;
                 }
 
@@ -153,7 +190,7 @@ namespace DataStructures.Core.LinkedList
         /// </summary>
         public void RemoveFirst()
         {
-            if(_headNode == null)
+            if (_headNode == null)
                 throw new InvalidOperationException();
 
             _headNode = _headNode.NextNode;
@@ -203,15 +240,63 @@ namespace DataStructures.Core.LinkedList
             throw new ArgumentOutOfRangeException();
         }
 
-        // TODO - Predicate or something
-        public bool Find(T data)
+        /// <summary>
+        /// Time Complexity O(n)
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        public T Find(object data, string propertyName = "")
         {
-            throw new System.NotImplementedException();
+            var currentNode = _headNode;
+            if (!string.IsNullOrEmpty(propertyName))
+            {
+                if (!typeof(T).GetProperties()
+                    .Any(x => x.Name.Equals(propertyName)))
+                    throw new InvalidOperationException();
+
+                while (currentNode != null)
+                {
+                    if (currentNode.Data.GetType()
+                        .GetProperty(propertyName)
+                        .GetValue(currentNode.Data)
+                        .Equals(data))
+                    {
+                        return currentNode.Data;
+                    }
+
+                    currentNode = currentNode.NextNode;
+                }
+            }
+            else
+            {
+                while (currentNode != null)
+                {
+                    if (currentNode.Data.Equals(data))
+                    {
+                        return currentNode.Data;
+                    }
+
+                    currentNode = currentNode.NextNode;
+                }
+            }
+            throw new InvalidOperationException();
         }
 
         public IEnumerator GetEnumerator()
         {
             return new LinkedListEnumrator<T>(_headNode);
         }
+
+        #region Private methods
+
+        private void Remove(Node<T> currentNode, Node<T> prevNode)
+        {
+            prevNode.NextNode = currentNode.NextNode;
+            if (currentNode == _tailNode)
+                _tailNode = prevNode;
+            return;
+        }
+        #endregion
     }
 }

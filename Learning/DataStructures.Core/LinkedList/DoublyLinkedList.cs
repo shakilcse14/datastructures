@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using DataStructures.Core.LinkedList.Contracts.Interfaces;
 
 namespace DataStructures.Core.LinkedList
@@ -111,10 +112,48 @@ namespace DataStructures.Core.LinkedList
             _tailNode = null;
         }
 
-        // TODO - Predicate or something
-        public void Remove(T data)
+        /// <summary>
+        /// Time Complexity O(n)
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="propertyName"></param>
+        public void Remove(object data, string propertyName = "")
         {
-            throw new System.NotImplementedException();
+            var currentNode = _headNode;
+            if (!string.IsNullOrEmpty(propertyName))
+            {
+                if (!typeof(T).GetProperties()
+                    .Any(x => x.Name.Equals(propertyName)))
+                    throw new InvalidOperationException();
+
+                while (currentNode != null)
+                {
+                    if (currentNode.Data.GetType()
+                        .GetProperty(propertyName)
+                        .GetValue(currentNode.Data)
+                        .Equals(data))
+                    {
+                        Remove(currentNode);
+                        return;
+                    }
+
+                    currentNode = currentNode.NextNode;
+                }
+            }
+            else
+            {
+                while (currentNode != null)
+                {
+                    if (currentNode.Data.Equals(data))
+                    {
+                        Remove(currentNode);
+                        return;
+                    }
+
+                    currentNode = currentNode.NextNode;
+                }
+            }
+            throw new InvalidOperationException();
         }
 
         /// <summary>
@@ -138,9 +177,7 @@ namespace DataStructures.Core.LinkedList
             {
                 if (currentPosition == position)
                 {
-                    if (currentNode.NextNode != null)
-                        currentNode.NextNode.PreviousNode = currentNode.PreviousNode;
-                    currentNode.PreviousNode.NextNode = currentNode.NextNode;
+                    Remove(currentNode);
                     return;
                 }
 
@@ -202,15 +239,64 @@ namespace DataStructures.Core.LinkedList
             throw new ArgumentOutOfRangeException();
         }
 
-        // TODO - Predicate or something
-        public bool Find(T data)
+        /// <summary>
+        /// Time Complexity O(n)
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        public T Find(object data, string propertyName = "")
         {
-            throw new System.NotImplementedException();
+            var currentNode = _headNode;
+            if (!string.IsNullOrEmpty(propertyName))
+            {
+                if (!typeof(T).GetProperties()
+                    .Any(x => x.Name.Equals(propertyName)))
+                    throw new InvalidOperationException();
+
+                while (currentNode != null)
+                {
+                    if (currentNode.Data.GetType()
+                        .GetProperty(propertyName)
+                        .GetValue(currentNode.Data)
+                        .Equals(data))
+                    {
+                        return currentNode.Data;
+                    }
+
+                    currentNode = currentNode.NextNode;
+                }
+            }
+            else
+            {
+                while (currentNode != null)
+                {
+                    if (currentNode.Data.Equals(data))
+                    {
+                        return currentNode.Data;
+                    }
+
+                    currentNode = currentNode.NextNode;
+                }
+            }
+            throw new InvalidOperationException();
         }
 
         public IEnumerator GetEnumerator()
         {
             return new LinkedListEnumrator<T>(_headNode);
         }
+
+        #region Private methods
+
+        private void Remove(Node<T> currentNode)
+        {
+            if (currentNode.NextNode != null)
+                currentNode.NextNode.PreviousNode = currentNode.PreviousNode;
+            currentNode.PreviousNode.NextNode = currentNode.NextNode;
+            return;
+        }
+
+        #endregion
     }
 }

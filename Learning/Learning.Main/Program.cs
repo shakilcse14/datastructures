@@ -1,5 +1,6 @@
 ﻿using System;
 using DataStructures.Core.ArrayList;
+using DataStructures.Core.HashTable;
 using DataStructures.Core.LinkedList;
 
 namespace Learning.Main
@@ -13,6 +14,8 @@ namespace Learning.Main
             //TestSinglyLinkedList();
 
             //TestDoublyLinkedList();
+
+            TestHashTable();
 
             Console.ReadLine();
         }
@@ -43,9 +46,18 @@ namespace Learning.Main
             }
 
             Console.WriteLine("\n" + doublyLinkedList.Find(1));
+            Console.WriteLine(doublyLinkedList.Find("A3"));
+            doublyLinkedList.Remove("A3");
+
+            Console.WriteLine();
+            foreach (var doubly in doublyLinkedList)
+            {
+                Console.WriteLine(doubly);
+            }
 
             #endregion
         }
+
         static void TestSinglyLinkedList()
         {
             #region SinglyLinkedList
@@ -72,6 +84,14 @@ namespace Learning.Main
             }
 
             Console.WriteLine("\n" + singlyLinkedList.Find(2));
+            Console.WriteLine(singlyLinkedList.Find("A3"));
+            singlyLinkedList.Remove("A3");
+
+            Console.WriteLine();
+            foreach (var single in singlyLinkedList)
+            {
+                Console.WriteLine(single);
+            }
 
             #endregion
         }
@@ -113,6 +133,21 @@ namespace Learning.Main
             }
             Console.WriteLine("Length: " + arrayList.Length);
 
+            #endregion
+        }
+
+        static void TestHashTable()
+        {
+            #region HashTable
+
+            var hashTable = new HashTable<string, int>();
+            hashTable.Add("a", 65);
+            hashTable.Add("A", 97);
+            hashTable.Add("b", 66);
+            hashTable.Add("B", 98);
+
+            Console.WriteLine(hashTable.Get("A"));
+            Console.WriteLine(hashTable.Get("b"));
             #endregion
         }
     }
