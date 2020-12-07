@@ -12,33 +12,31 @@ namespace DataStructures.Core.HashTable
         private int _currentSize;
 
         private ArrayList<SinglyLinkedList<KeyValuePair<K, V>>> _bucketList;
+        private readonly HashTableCollisionType _hashTableCollisionType;
 
-        public HashTable()
+        public HashTable(HashTableCollisionType hashTableCollisionType = HashTableCollisionType.LinkedList)
         {
             _bucketSize = 10;
             _loadFactor = 0.7f;
             _currentSize = 0;
+            _hashTableCollisionType = hashTableCollisionType;
 
-            _bucketList = new ArrayList<SinglyLinkedList<KeyValuePair<K, V>>>(_bucketSize);
+            if (_hashTableCollisionType == HashTableCollisionType.LinkedList)
+                _bucketList = new ArrayList<SinglyLinkedList<KeyValuePair<K, V>>>(_bucketSize);
             for (var index = 0; index < _bucketSize; index++)
             {
-                _bucketList.Add(new SinglyLinkedList<KeyValuePair<K, V>>());
+                if (_hashTableCollisionType == HashTableCollisionType.LinkedList)
+                    _bucketList.Add(new SinglyLinkedList<KeyValuePair<K, V>>());
             }
         }
 
-        public int Size
-        {
-            get
-            {
-                return _currentSize;
-            }
-        }
+        public int Size => _currentSize;
 
         public void Add(K key, V value)
         {
             try
             {
-                int bucketIndexForKey = GetBucketIndex(key);
+                var bucketIndexForKey = GetBucketIndex(key);
                 _bucketList[bucketIndexForKey].Add(new KeyValuePair<K, V>()
                 {
                     Key = key,
