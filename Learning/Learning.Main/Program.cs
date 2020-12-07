@@ -2,6 +2,7 @@
 using DataStructures.Core.ArrayList;
 using DataStructures.Core.HashTable;
 using DataStructures.Core.LinkedList;
+using DataStructures.Core.Search.BinarySearch;
 
 namespace Learning.Main
 {
@@ -15,7 +16,9 @@ namespace Learning.Main
 
             //TestDoublyLinkedList();
 
-            TestHashTable();
+            //TestHashTable();
+
+            TestBinarySearch();
 
             Console.ReadLine();
         }
@@ -148,6 +151,22 @@ namespace Learning.Main
 
             Console.WriteLine(hashTable.Get("A"));
             Console.WriteLine(hashTable.Get("b"));
+            #endregion
+        }
+
+        static void TestBinarySearch()
+        {
+            #region BinarySearch
+
+            var binarySearch = new BinarySearch<int>(new int[]
+            {
+                1,2,3,4,5,6,7,8,9,10
+            });
+
+            Console.WriteLine(binarySearch.Find(2));
+            Console.WriteLine(binarySearch.Find(7));
+            Console.WriteLine(binarySearch.Find(52));
+
             #endregion
         }
     }
