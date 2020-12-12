@@ -15,6 +15,8 @@ namespace DataStructures.Core.LinkedList
 
         public bool MoveNext()
         {
+            if (_headNode == null) return false;
+
             if (_currentNode == null)
             {
                 _currentNode = _headNode;

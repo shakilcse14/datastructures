@@ -18,7 +18,7 @@ namespace Learning.Main
 
             //TestHashTable();
 
-            TestBinarySearch();
+            //TestBinarySearch();
 
             Console.ReadLine();
         }
@@ -151,6 +151,10 @@ namespace Learning.Main
 
             Console.WriteLine(hashTable.Get("A"));
             Console.WriteLine(hashTable.Get("b"));
+            Console.WriteLine(hashTable.Get("B"));
+            Console.WriteLine(hashTable.Size);
+            hashTable.Remove("B");
+            Console.WriteLine(hashTable.Size);
             #endregion
         }
 

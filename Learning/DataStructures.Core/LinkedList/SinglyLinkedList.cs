@@ -129,8 +129,10 @@ namespace DataStructures.Core.LinkedList
                         .Equals(data))
                     {
                         Remove(currentNode, prevNode);
+                        return;
                     }
 
+                    prevNode = currentNode;
                     currentNode = currentNode.NextNode;
                 }
             }
@@ -144,6 +146,7 @@ namespace DataStructures.Core.LinkedList
                         return;
                     }
 
+                    prevNode = currentNode;
                     currentNode = currentNode.NextNode;
                 }
             }
@@ -294,8 +297,8 @@ namespace DataStructures.Core.LinkedList
             prevNode.NextNode = currentNode.NextNode;
             if (currentNode == _tailNode)
                 _tailNode = prevNode;
-            return;
         }
+
         #endregion
     }
 }

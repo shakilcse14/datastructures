@@ -16,7 +16,7 @@ namespace DataStructures.Core.HashTable
 
         public HashTable(HashTableCollisionType hashTableCollisionType = HashTableCollisionType.LinkedList)
         {
-            _bucketSize = 10;
+            _bucketSize = 3;
             _loadFactor = 0.7f;
             _currentSize = 0;
             _hashTableCollisionType = hashTableCollisionType;
@@ -48,6 +48,23 @@ namespace DataStructures.Core.HashTable
                 if (((float)_currentSize / _bucketSize) >= _loadFactor)
                 {
                     Console.WriteLine("Load factor crossed");
+                    _bucketSize *= 2;
+                    var tempArrayList = _bucketList;
+                    _bucketList = new ArrayList<SinglyLinkedList<KeyValuePair<K, V>>>(_bucketSize);
+                    for (var index = 0; index < _bucketSize; index++)
+                    {
+                        if (_hashTableCollisionType == HashTableCollisionType.LinkedList)
+                            _bucketList.Add(new SinglyLinkedList<KeyValuePair<K, V>>());
+                    }
+
+                    _currentSize = 0;
+                    foreach (SinglyLinkedList<KeyValuePair<K, V>> singlyLinkedList in tempArrayList)
+                    {
+                        foreach (KeyValuePair<K, V> pair in singlyLinkedList)
+                        {
+                            Add(pair.Key, pair.Value);
+                        }
+                    }
                 }
             }
             catch(Exception)
@@ -58,7 +75,16 @@ namespace DataStructures.Core.HashTable
 
         public void Remove(K key)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                var bucketIndexForKey = GetBucketIndex(key);
+                _bucketList[bucketIndexForKey].Remove(key, "Key");
+                _currentSize--;
+            }
+            catch (Exception)
+            {
+                throw new InvalidOperationException();
+            }
         }
 
         #region Private Methods
