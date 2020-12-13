@@ -13,6 +13,12 @@ namespace DataStructures.Core.Search.BinarySearch
             _sortedItems = sortedItems;
         }
 
+        /// <summary>
+        /// Time Complexity O(logN)
+        /// Call Stack O(height)
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public bool Find(T data)
         {
             return Search(0, _sortedItems.Length - 1, data);

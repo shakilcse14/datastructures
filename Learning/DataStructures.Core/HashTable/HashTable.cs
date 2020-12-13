@@ -32,6 +32,11 @@ namespace DataStructures.Core.HashTable
 
         public int Size => _currentSize;
 
+        /// <summary>
+        /// Time complexity O(1)
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
         public void Add(K key, V value)
         {
             try
@@ -73,6 +78,10 @@ namespace DataStructures.Core.HashTable
             }
         }
 
+        /// <summary>
+        /// Time complexity O(1)
+        /// </summary>
+        /// <param name="key"></param>
         public void Remove(K key)
         {
             try
@@ -94,6 +103,11 @@ namespace DataStructures.Core.HashTable
             return Math.Abs(key.GetHashCode()) % _bucketSize;
         }
 
+        /// <summary>
+        /// Time complexity O(1)
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public V Get(K key)
         {
             try

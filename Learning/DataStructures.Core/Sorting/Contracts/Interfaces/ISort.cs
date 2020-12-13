@@ -1,7 +1,7 @@
 ﻿namespace DataStructures.Core.Sorting.Contracts.Interfaces
 {
-    public interface ISort
+    public interface ISort<out T>
     {
-        void Sort();
+        T[] Sort();
     }
 }

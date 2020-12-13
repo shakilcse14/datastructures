@@ -3,6 +3,8 @@ using DataStructures.Core.ArrayList;
 using DataStructures.Core.HashTable;
 using DataStructures.Core.LinkedList;
 using DataStructures.Core.Search.BinarySearch;
+using DataStructures.Core.Sorting.BubbleSort;
+using DataStructures.Core.Sorting.MergeSort;
 
 namespace Learning.Main
 {
@@ -19,6 +21,10 @@ namespace Learning.Main
             //TestHashTable();
 
             //TestBinarySearch();
+
+            //TestBubbleSort();
+
+            //TestMergeSort();
 
             Console.ReadLine();
         }
@@ -170,6 +176,34 @@ namespace Learning.Main
             Console.WriteLine(binarySearch.Find(2));
             Console.WriteLine(binarySearch.Find(7));
             Console.WriteLine(binarySearch.Find(52));
+
+            #endregion
+        }
+
+        static void TestBubbleSort()
+        {
+            #region BubbleSort
+
+            var bubbleSort = new BubbleSort<int>(new int[]
+            {
+                5,1,3,4,2,8,6
+            });
+
+            Console.WriteLine(string.Join(',', bubbleSort.Sort()));
+
+            #endregion
+        }
+
+        static void TestMergeSort()
+        {
+            #region MergeSort
+
+            var mergeSort = new MergeSort<int>(new int[]
+            {
+                5,1,3,4,2,8,6
+            });
+
+            Console.WriteLine(string.Join(',', mergeSort.Sort()));
 
             #endregion
         }
