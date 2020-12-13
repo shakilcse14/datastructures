@@ -27,47 +27,11 @@ namespace Learning.Main
 
             //TestMergeSort();
 
-            TestQuickSort();
+            //TestQuickSort();
+
+            TestCircularLinkedList();
 
             Console.ReadLine();
-        }
-
-        static void TestDoublyLinkedList()
-        {
-            #region DoublyLinkedList
-
-            var doublyLinkedList = new DoublyLinkedList<string>();
-            doublyLinkedList.Add("A1");
-            doublyLinkedList.Add("A2");
-            doublyLinkedList.Add("A3");
-            doublyLinkedList.Add("AM_2", 2);
-            doublyLinkedList.AddLast("AL");
-            doublyLinkedList.AddFirst("A0");
-            foreach (var single in doublyLinkedList)
-            {
-                Console.WriteLine(single);
-            }
-            Console.WriteLine("\n");
-            doublyLinkedList.Remove(2);
-            doublyLinkedList.RemoveLast();
-            doublyLinkedList.Remove(2);
-            doublyLinkedList.RemoveFirst();
-            foreach (var single in doublyLinkedList)
-            {
-                Console.WriteLine(single);
-            }
-
-            Console.WriteLine("\n" + doublyLinkedList.Find(1));
-            Console.WriteLine(doublyLinkedList.Find("A3"));
-            doublyLinkedList.Remove("A3");
-
-            Console.WriteLine();
-            foreach (var doubly in doublyLinkedList)
-            {
-                Console.WriteLine(doubly);
-            }
-
-            #endregion
         }
 
         static void TestSinglyLinkedList()
@@ -103,6 +67,44 @@ namespace Learning.Main
             foreach (var single in singlyLinkedList)
             {
                 Console.WriteLine(single);
+            }
+
+            #endregion
+        }
+
+        static void TestDoublyLinkedList()
+        {
+            #region DoublyLinkedList
+
+            var doublyLinkedList = new DoublyLinkedList<string>();
+            doublyLinkedList.Add("A1");
+            doublyLinkedList.Add("A2");
+            doublyLinkedList.Add("A3");
+            doublyLinkedList.Add("AM_2", 2);
+            doublyLinkedList.AddLast("AL");
+            doublyLinkedList.AddFirst("A0");
+            foreach (var single in doublyLinkedList)
+            {
+                Console.WriteLine(single);
+            }
+            Console.WriteLine("\n");
+            doublyLinkedList.Remove(2);
+            doublyLinkedList.RemoveLast();
+            doublyLinkedList.Remove(2);
+            doublyLinkedList.RemoveFirst();
+            foreach (var single in doublyLinkedList)
+            {
+                Console.WriteLine(single);
+            }
+
+            Console.WriteLine("\n" + doublyLinkedList.Find(1));
+            Console.WriteLine(doublyLinkedList.Find("A3"));
+            doublyLinkedList.Remove("A3");
+
+            Console.WriteLine();
+            foreach (var doubly in doublyLinkedList)
+            {
+                Console.WriteLine(doubly);
             }
 
             #endregion
@@ -224,5 +226,44 @@ namespace Learning.Main
 
             #endregion
         }
+
+        static void TestCircularLinkedList()
+        {
+            #region CircularLinkedList
+
+            var circularLinkedList = new CircularLinkedList<string>();
+            circularLinkedList.Add("A1");
+            circularLinkedList.Add("A2");
+            circularLinkedList.Add("A3");
+            circularLinkedList.Add("AM_2", 2);
+            circularLinkedList.AddLast("AL");
+            circularLinkedList.AddFirst("A0");
+            foreach (var single in circularLinkedList)
+            {
+                Console.WriteLine(single);
+            }
+            Console.WriteLine("\n");
+            circularLinkedList.Remove(2);
+            circularLinkedList.RemoveLast();
+            circularLinkedList.Remove(2);
+            circularLinkedList.RemoveFirst();
+            foreach (var single in circularLinkedList)
+            {
+                Console.WriteLine(single);
+            }
+
+            Console.WriteLine("\n" + circularLinkedList.Find(1));
+            Console.WriteLine(circularLinkedList.Find("A3"));
+            circularLinkedList.Remove("A3");
+
+            Console.WriteLine();
+            foreach (var doubly in circularLinkedList)
+            {
+                Console.WriteLine(doubly);
+            }
+
+            #endregion
+        }
+
     }
 }

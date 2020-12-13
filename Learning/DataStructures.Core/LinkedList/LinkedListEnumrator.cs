@@ -24,7 +24,7 @@ namespace DataStructures.Core.LinkedList
             }
 
             _currentNode = _currentNode.NextNode;
-            return _currentNode != null;
+            return _currentNode != null && _currentNode != _headNode;
         }
 
         public void Reset()

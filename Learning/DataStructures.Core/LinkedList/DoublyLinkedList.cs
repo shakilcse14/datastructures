@@ -23,8 +23,10 @@ namespace DataStructures.Core.LinkedList
             }
             else
             {
-                var node = new Node<T>(data);
-                node.PreviousNode = _tailNode;
+                var node = new Node<T>(data)
+                {
+                    PreviousNode = _tailNode
+                };
                 _tailNode.NextNode = node;
                 _tailNode = node;
             }
@@ -52,9 +54,8 @@ namespace DataStructures.Core.LinkedList
                 {
                     var node = new Node<T>(data)
                     {
-                        NextNode = currentNode.NextNode
+                        NextNode = currentNode.NextNode, PreviousNode = currentNode
                     };
-                    node.PreviousNode = currentNode;
                     if (currentNode.NextNode != null)
                         currentNode.NextNode.PreviousNode = node;
                     currentNode.NextNode = node;
