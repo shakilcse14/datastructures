@@ -8,7 +8,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructures.Core", "Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.Main", "Learning.Main\Learning.Main.csproj", "{7DB95F95-2177-4C7E-83A3-0432063D0A39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures.Core.Tests", "DataStructures.Core.Tests\DataStructures.Core.Tests.csproj", "{AAD61F39-4DCE-4B5E-9358-EED85FAA5B3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructures.Core.Tests", "DataStructures.Core.Tests\DataStructures.Core.Tests.csproj", "{AAD61F39-4DCE-4B5E-9358-EED85FAA5B3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Competitive Programming Problems", "Competitive Programming Problems", "{7ACB372A-7165-40F6-8D40-3A99C230B3DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

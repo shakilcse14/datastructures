@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections;
 using DataStructures.Core.ArrayList;
 using DataStructures.Core.HashTable;
 using DataStructures.Core.LinkedList;
+using DataStructures.Core.Queue;
 using DataStructures.Core.Search.BinarySearch;
 using DataStructures.Core.Sorting.BubbleSort;
 using DataStructures.Core.Sorting.MergeSort;
 using DataStructures.Core.Sorting.QuickSort;
+using DataStructures.Core.Stack;
 
 namespace Learning.Main
 {
@@ -29,7 +32,11 @@ namespace Learning.Main
 
             //TestQuickSort();
 
-            TestCircularLinkedList();
+            //TestCircularLinkedList();
+
+            //TestStack();
+
+            TestQueue();
 
             Console.ReadLine();
         }
@@ -265,5 +272,32 @@ namespace Learning.Main
             #endregion
         }
 
+        static void TestStack()
+        {
+            #region Stack
+
+            var stack = new Stack<int>();
+            stack.Push(10);
+            stack.Push(20);
+            stack.Push(30);
+            Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.Peek());
+            
+            #endregion
+        }
+
+        static void TestQueue()
+        {
+            #region Queue
+
+            var queue = new Queue<int>();
+            queue.Enqueue(10);
+            queue.Enqueue(20);
+            queue.Enqueue(30);
+            Console.WriteLine(queue.Dequeue());
+            Console.WriteLine(queue.Peek());
+
+            #endregion
+        }
     }
 }
