@@ -5,6 +5,7 @@ using DataStructures.Core.LinkedList;
 using DataStructures.Core.Search.BinarySearch;
 using DataStructures.Core.Sorting.BubbleSort;
 using DataStructures.Core.Sorting.MergeSort;
+using DataStructures.Core.Sorting.QuickSort;
 
 namespace Learning.Main
 {
@@ -25,6 +26,8 @@ namespace Learning.Main
             //TestBubbleSort();
 
             //TestMergeSort();
+
+            TestQuickSort();
 
             Console.ReadLine();
         }
@@ -204,6 +207,20 @@ namespace Learning.Main
             });
 
             Console.WriteLine(string.Join(',', mergeSort.Sort()));
+
+            #endregion
+        }
+
+        static void TestQuickSort()
+        {
+            #region QuickSort
+
+            var quickSort = new QuickSort<int>(new int[]
+            {
+                5,1,3,4,2,8,6
+            });
+
+            Console.WriteLine(string.Join(',', quickSort.Sort()));
 
             #endregion
         }

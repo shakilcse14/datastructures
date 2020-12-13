@@ -7,9 +7,9 @@ namespace DataStructures.Core.Sorting.MergeSort
     {
         private readonly T[] _items;
 
-        public MergeSort(T[] item)
+        public MergeSort(T[] items)
         {
-            _items = item;
+            _items = items;
         }
 
         /// <summary>
