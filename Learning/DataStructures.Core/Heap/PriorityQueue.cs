@@ -49,6 +49,7 @@ namespace DataStructures.Core.Heap
         public T Dequeue()
         {
             var currentPosition = 0;
+            var largestPosition = 0;
             var value = _arrayList[currentPosition];
             _arrayList[currentPosition] = _arrayList[_arrayList.Length - 1];
             _arrayList.Remove(_arrayList.Length - 1);
@@ -57,41 +58,29 @@ namespace DataStructures.Core.Heap
             {
                 var leftPosition = GetLeftChildPosition(currentPosition);
                 var rightPosition = GetRightChildPosition(currentPosition);
-                if (leftPosition >= _arrayList.Length) break;
-
-                if (rightPosition >= _arrayList.Length)
+                
+                if (leftPosition < _arrayList.Length && _arrayList[leftPosition].CompareTo(_arrayList[currentPosition]) > 0)
                 {
-                    if (_arrayList[leftPosition].CompareTo(_arrayList[currentPosition]) > 0)
-                    {
-                        Swap(leftPosition, currentPosition);
-                    }
-                    break;
+                    largestPosition = leftPosition;
                 }
 
-                if (_arrayList[leftPosition].CompareTo(_arrayList[rightPosition]) > 0)
+                if (rightPosition < _arrayList.Length && _arrayList[rightPosition].CompareTo(_arrayList[largestPosition]) > 0)
                 {
-                    if (_arrayList[leftPosition].CompareTo(_arrayList[currentPosition]) > 0)
-                    {
-                        Swap(leftPosition, currentPosition);
-                        currentPosition = leftPosition;
-                    }
-                    else
-                        break;
+                    largestPosition = rightPosition;
+                }
+
+                if (largestPosition != currentPosition)
+                {
+                    Swap(largestPosition, currentPosition);
+                    currentPosition = largestPosition;
                 }
                 else
-                {
-                    if (_arrayList[rightPosition].CompareTo(_arrayList[currentPosition]) > 0)
-                    {
-                        Swap(rightPosition, currentPosition);
-                        currentPosition = rightPosition;
-                    }
-                    else
-                        break;
-                }
+                    break;
             }
 
             return value;
         }
+
         /// <summary>
         /// Time complexity O(1)
         /// </summary>

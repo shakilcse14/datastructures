@@ -40,7 +40,9 @@ namespace Learning.Main
 
             //TestQueue();
 
-            TestHeap();
+            //TestHeap();
+
+            TestHeapSort();
 
             Console.ReadLine();
         }
@@ -316,10 +318,10 @@ namespace Learning.Main
             priorityQueue.Enqueue(2);
             priorityQueue.Enqueue(8);
 
-            //foreach (var queue in priorityQueue)
-            //{
-            //    Console.WriteLine(queue);
-            //}
+            foreach (var queue in priorityQueue)
+            {
+                Console.WriteLine(queue);
+            }
             Console.WriteLine("Dequeuing ... ");
             Console.WriteLine(priorityQueue.Dequeue());
             Console.WriteLine(priorityQueue.Dequeue());
@@ -330,5 +332,20 @@ namespace Learning.Main
 
             #endregion
         }
+
+        static void TestHeapSort()
+        {
+            #region HeapSort
+
+            var heapSort = new HeapSort<int>(new int[]
+            {
+                5,1,3,4,2,8,6
+            });
+
+            Console.WriteLine(string.Join(',', heapSort.Sort()));
+
+            #endregion
+        }
+
     }
 }
