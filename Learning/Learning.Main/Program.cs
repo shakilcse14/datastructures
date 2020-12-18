@@ -2,10 +2,12 @@
 using System.Collections;
 using DataStructures.Core.ArrayList;
 using DataStructures.Core.HashTable;
+using DataStructures.Core.Heap;
 using DataStructures.Core.LinkedList;
 using DataStructures.Core.Queue;
 using DataStructures.Core.Search.BinarySearch;
 using DataStructures.Core.Sorting.BubbleSort;
+using DataStructures.Core.Sorting.HeapSort;
 using DataStructures.Core.Sorting.MergeSort;
 using DataStructures.Core.Sorting.QuickSort;
 using DataStructures.Core.Stack;
@@ -36,7 +38,9 @@ namespace Learning.Main
 
             //TestStack();
 
-            TestQueue();
+            //TestQueue();
+
+            TestHeap();
 
             Console.ReadLine();
         }
@@ -296,6 +300,33 @@ namespace Learning.Main
             queue.Enqueue(30);
             Console.WriteLine(queue.Dequeue());
             Console.WriteLine(queue.Peek());
+
+            #endregion
+        }
+
+        static void TestHeap()
+        {
+            #region Heap
+
+            var priorityQueue = new PriorityQueue<int>();
+            priorityQueue.Enqueue(5);
+            priorityQueue.Enqueue(1);
+            priorityQueue.Enqueue(3);
+            priorityQueue.Enqueue(4);
+            priorityQueue.Enqueue(2);
+            priorityQueue.Enqueue(8);
+
+            //foreach (var queue in priorityQueue)
+            //{
+            //    Console.WriteLine(queue);
+            //}
+            Console.WriteLine("Dequeuing ... ");
+            Console.WriteLine(priorityQueue.Dequeue());
+            Console.WriteLine(priorityQueue.Dequeue());
+            Console.WriteLine(priorityQueue.Dequeue());
+            Console.WriteLine(priorityQueue.Dequeue());
+            Console.WriteLine(priorityQueue.Dequeue());
+            Console.WriteLine(priorityQueue.Dequeue());
 
             #endregion
         }
