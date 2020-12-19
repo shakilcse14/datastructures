@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using DataStructures.Core.ArrayList;
 using DataStructures.Core.HashTable;
 using DataStructures.Core.Heap;
@@ -11,6 +10,9 @@ using DataStructures.Core.Sorting.HeapSort;
 using DataStructures.Core.Sorting.MergeSort;
 using DataStructures.Core.Sorting.QuickSort;
 using DataStructures.Core.Stack;
+using DataStructures.Core.Trees.BinarySearchTree;
+using DataStructures.Core.Trees.BinaryTree;
+using DataStructures.Core.Trees.Contracts;
 
 namespace Learning.Main
 {
@@ -42,7 +44,11 @@ namespace Learning.Main
 
             //TestHeap();
 
-            TestHeapSort();
+            //TestHeapSort();
+
+            //TestBinaryTree();
+
+            TestBinarySearchTree();
 
             Console.ReadLine();
         }
@@ -344,6 +350,82 @@ namespace Learning.Main
 
             Console.WriteLine(string.Join(',', heapSort.Sort()));
 
+            #endregion
+        }
+
+        static void TestBinaryTree()
+        {
+            #region BinaryTree
+
+            var binaryTree = new BinaryTree<int>
+            {
+                ParentNode = new TreeNode<int>()
+                {
+                    Data = 1,
+                    Left = new TreeNode<int>()
+                    {
+                        Data = 2,
+                        Left = new TreeNode<int>()
+                        {
+                            Data = 4
+                        },
+                        Right = new TreeNode<int>()
+                        {
+                            Data = 5
+                        }
+                    },
+                    Right = new TreeNode<int>()
+                    {
+                        Data = 3
+                    }
+                }
+            };
+
+
+            Console.WriteLine("PreOrder");
+            binaryTree.Traverse(TraverseType.PreOrder);
+            Console.WriteLine("InOrder");
+            binaryTree.Traverse(TraverseType.InOrder);
+            Console.WriteLine("PostOrder");
+            binaryTree.Traverse(TraverseType.PostOrder);
+
+            #endregion
+        }
+
+        static void TestBinarySearchTree()
+        {
+            #region BinarySearch
+
+            var binarySearchTree = new BinarySearchTree<int>();
+            binarySearchTree.Insert(5);
+            binarySearchTree.Insert(1);
+            binarySearchTree.Insert(3);
+            binarySearchTree.Insert(4);
+            binarySearchTree.Insert(2);
+            binarySearchTree.Insert(8);
+
+            Console.WriteLine(binarySearchTree.Contains(2));
+            Console.WriteLine(binarySearchTree.Contains(12));
+
+            Console.WriteLine("PreOrder");
+            binarySearchTree.Traverse(TraverseType.PreOrder);
+            Console.WriteLine("InOrder");
+            binarySearchTree.Traverse(TraverseType.InOrder);
+            Console.WriteLine("PostOrder");
+            binarySearchTree.Traverse(TraverseType.PostOrder);
+
+            Console.WriteLine("Deleting 4 ..");
+            binarySearchTree.Remove(4);
+            Console.WriteLine("InOrder");
+            binarySearchTree.Traverse(TraverseType.InOrder);
+            Console.WriteLine("Deleting 3 ..");
+            binarySearchTree.Remove(3);
+            Console.WriteLine("InOrder");
+            binarySearchTree.Traverse(TraverseType.InOrder);
+            Console.WriteLine("Deleting 5 ..");
+            binarySearchTree.Remove(5);
+            Console.WriteLine("InOrder");
+            binarySearchTree.Traverse(TraverseType.InOrder);
             #endregion
         }
 
