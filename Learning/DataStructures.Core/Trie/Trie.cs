@@ -6,7 +6,7 @@ namespace DataStructures.Core.Trie
 {
     public class Trie : ITrie
     {
-        public TrieNode _root;
+        private TrieNode _root;
 
         public Trie() { }
 

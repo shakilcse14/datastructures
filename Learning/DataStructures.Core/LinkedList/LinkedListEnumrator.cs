@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStructures.Core.LinkedList.Contracts;
+using System;
 using System.Collections;
 
 namespace DataStructures.Core.LinkedList

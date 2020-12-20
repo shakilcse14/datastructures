@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using DataStructures.Core.LinkedList.Contracts;
 using DataStructures.Core.LinkedList.Contracts.Interfaces;
 
 namespace DataStructures.Core.LinkedList

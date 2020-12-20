@@ -1,4 +1,4 @@
-﻿namespace DataStructures.Core.LinkedList
+﻿namespace DataStructures.Core.LinkedList.Contracts
 {
     public class Node<T>
     {

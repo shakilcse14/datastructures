@@ -1,5 +1,7 @@
 ﻿using System;
 using DataStructures.Core.ArrayList;
+using DataStructures.Core.Graphs.BFS;
+using DataStructures.Core.Graphs.DFS;
 using DataStructures.Core.HashTable;
 using DataStructures.Core.Heap;
 using DataStructures.Core.LinkedList;
@@ -51,7 +53,11 @@ namespace Learning.Main
 
             //TestBinarySearchTree();
 
-            TestTries();
+            //TestTries();
+
+            //TestBFS();
+            
+            //TestDFS();
 
             Console.ReadLine();
         }
@@ -459,6 +465,40 @@ namespace Learning.Main
             //Console.WriteLine("Car: " + tries.Search("Car"));
             //tries.Delete("Cards");
             //Console.WriteLine("Card: " + tries.Search("Cards"));
+
+            #endregion
+        }
+
+        static void TestBFS()
+        {
+            #region BFS
+
+            var bfs = new BFS(4);
+            bfs.AddEdge(0, 1);
+            bfs.AddEdge(0, 2);
+            bfs.AddEdge(1, 2);
+            bfs.AddEdge(2, 0);
+            bfs.AddEdge(2, 3);
+            bfs.AddEdge(3, 3);
+
+            bfs.Traverse(2);
+
+            #endregion
+        }
+
+        static void TestDFS()
+        {
+            #region DFS
+
+            var dfs = new DFS(4);
+            dfs.AddEdge(0, 1);
+            dfs.AddEdge(0, 2);
+            dfs.AddEdge(1, 2);
+            dfs.AddEdge(2, 0);
+            dfs.AddEdge(2, 3);
+            dfs.AddEdge(3, 3);
+
+            dfs.Traverse(2);
 
             #endregion
         }
