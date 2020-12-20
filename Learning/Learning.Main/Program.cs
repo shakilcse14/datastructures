@@ -13,6 +13,7 @@ using DataStructures.Core.Stack;
 using DataStructures.Core.Trees.BinarySearchTree;
 using DataStructures.Core.Trees.BinaryTree;
 using DataStructures.Core.Trees.Contracts;
+using DataStructures.Core.Trie;
 
 namespace Learning.Main
 {
@@ -48,7 +49,9 @@ namespace Learning.Main
 
             //TestBinaryTree();
 
-            TestBinarySearchTree();
+            //TestBinarySearchTree();
+
+            TestTries();
 
             Console.ReadLine();
         }
@@ -429,5 +432,35 @@ namespace Learning.Main
             #endregion
         }
 
+        static void TestTries()
+        {
+            #region Tries
+
+            var tries = new Trie();
+            tries.Insert("te");
+            tries.Insert("ten");
+            tries.Insert("tents");
+            tries.Insert("tena");
+            Console.WriteLine("tents: " + tries.Search("tents"));
+            tries.Delete("tents");
+            Console.WriteLine("tents: " + tries.Search("tents"));
+
+            //tries.Insert("Card");
+            //tries.Insert("Cards");
+            //tries.Insert("Calendar");
+            //tries.Insert("not");
+            //tries.Insert("a");
+            //tries.Insert("same");
+            //tries.Insert("thing");
+
+            //Console.WriteLine("Calendar: " + tries.Search("Calendar"));
+            //Console.WriteLine("hello: " + tries.Search("hello"));
+            //Console.WriteLine("Card: " + tries.Search("Card"));
+            //Console.WriteLine("Car: " + tries.Search("Car"));
+            //tries.Delete("Cards");
+            //Console.WriteLine("Card: " + tries.Search("Cards"));
+
+            #endregion
+        }
     }
 }
