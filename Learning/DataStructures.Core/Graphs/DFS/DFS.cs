@@ -8,19 +8,24 @@ namespace DataStructures.Core.Graphs.DFS
     public class DFS : IGraph
     {
         private bool[] _visited;
-        private int[,] _adjacencyMatrix;
+        private LinkedList<int>[] _adjacencyList;
         private int _numberOfVertices;
 
         public DFS(int totalVertices)
         {
             _numberOfVertices = totalVertices;
             _visited = new bool[totalVertices];
-            _adjacencyMatrix = new int[totalVertices, totalVertices];
+            _adjacencyList = new LinkedList<int>[totalVertices];
+
+            for (var i = 0; i < totalVertices; i++)
+            {
+                _adjacencyList[i] = new LinkedList<int>();
+            }
         }
 
         public void AddEdge(int from, int to)
         {
-            _adjacencyMatrix[from, to] = 1;
+            _adjacencyList[from].AddLast(to);
         }
 
         public void Traverse(int startFrom)
@@ -47,10 +52,9 @@ namespace DataStructures.Core.Graphs.DFS
 
         private int GetAdjacentVertex(int vertex)
         {
-            for (var current = 0; current < _numberOfVertices; current++)
+            foreach (var current in _adjacencyList[vertex]
+                .Where(current => !_visited[current]))
             {
-                if (_adjacencyMatrix[vertex, current] != 1 || _visited[current]) continue;
-
                 _visited[current] = true;
                 return current;
             }
