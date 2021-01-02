@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DynamicProgramming\Knapsack\" />
     <Folder Include="DynamicProgramming\MultiStageGraph\" />
     <Folder Include="DynamicProgramming\FloydWarshall\" />
     <Folder Include="DynamicProgramming\MatrixMultiplication\" />
@@ -13,7 +12,6 @@
     <Folder Include="DynamicProgramming\LCS\" />
     <Folder Include="DynamicProgramming\TravellingSalesMan\" />
     <Folder Include="DynamicProgramming\OptimalBinarySearchTree\" />
-    <Folder Include="Greedy\Knapsack\" />
     <Folder Include="Greedy\Dijkstra\" />
     <Folder Include="Greedy\MST\Krushkals\" />
     <Folder Include="Greedy\MST\Prims\" />

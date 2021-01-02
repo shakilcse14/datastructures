@@ -1,5 +1,6 @@
 ﻿using System;
 using DataStructures.Core.ArrayList;
+using DataStructures.Core.DynamicProgramming.Knapsack;
 using DataStructures.Core.Graphs.BFS;
 using DataStructures.Core.Graphs.DFS;
 using DataStructures.Core.HashTable;
@@ -16,6 +17,7 @@ using DataStructures.Core.Trees.BinarySearchTree;
 using DataStructures.Core.Trees.BinaryTree;
 using DataStructures.Core.Trees.Contracts;
 using DataStructures.Core.Trie;
+using Knapsack = DataStructures.Core.Greedy.Knapsack.Knapsack;
 
 namespace Learning.Main
 {
@@ -58,6 +60,10 @@ namespace Learning.Main
             //TestBFS();
             
             //TestDFS();
+
+            //TestKnapsackGreedy();
+
+            TestKnapsackDP();
 
             Console.ReadLine();
         }
@@ -499,6 +505,38 @@ namespace Learning.Main
             dfs.AddEdge(3, 3);
 
             dfs.Traverse(2);
+
+            #endregion
+        }
+
+        static void TestKnapsackGreedy()
+        {
+            #region Knapsack
+
+            var knapsack = new Knapsack(15, 
+                new int [7]{10, 5, 15, 7, 6, 18, 3},
+                new int [7] { 2, 3, 5, 7, 1, 4, 1 });
+            var x = knapsack.FindMaximum();
+            Console.WriteLine(string.Join(',', x));
+            #endregion
+        }
+
+        static void TestKnapsackDP()
+        {
+            #region Knapsack
+
+            var knapsack = new DataStructures.Core.DynamicProgramming.Knapsack.Knapsack(50,
+                new[] {60, 100, 120},
+                new[] {20, 10, 30});
+
+            var x = knapsack.FindMaximum(Solution.Recursion);
+            Console.WriteLine(string.Join(',', x));
+            
+            x = knapsack.FindMaximum(Solution.Memoization);
+            Console.WriteLine(string.Join(',', x));
+
+            x = knapsack.FindMaximum(Solution.Tabulation);
+            Console.WriteLine(string.Join(',', x));
 
             #endregion
         }
