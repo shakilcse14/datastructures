@@ -6,12 +6,15 @@ using DataStructures.Core.Graphs.DFS;
 using DataStructures.Core.HashTable;
 using DataStructures.Core.Heap;
 using DataStructures.Core.LinkedList;
+using DataStructures.Core.NumberTheory.PrimeNumber;
 using DataStructures.Core.Queue;
 using DataStructures.Core.Search.BinarySearch;
 using DataStructures.Core.Sorting.BubbleSort;
 using DataStructures.Core.Sorting.HeapSort;
+using DataStructures.Core.Sorting.InsertionSort;
 using DataStructures.Core.Sorting.MergeSort;
 using DataStructures.Core.Sorting.QuickSort;
+using DataStructures.Core.Sorting.SelectionSort;
 using DataStructures.Core.Stack;
 using DataStructures.Core.Trees.BinarySearchTree;
 using DataStructures.Core.Trees.BinaryTree;
@@ -58,12 +61,18 @@ namespace Learning.Main
             //TestTries();
 
             //TestBFS();
-            
+
             //TestDFS();
 
             //TestKnapsackGreedy();
 
-            TestKnapsackDP();
+            //TestKnapsackDP();
+
+            //TestInsertionSort();
+
+            //TestSelectionSort();
+
+            TestPrimeNumber();
 
             Console.ReadLine();
         }
@@ -537,6 +546,46 @@ namespace Learning.Main
 
             x = knapsack.FindMaximum(Solution.Tabulation);
             Console.WriteLine(string.Join(',', x));
+
+            #endregion
+        }
+
+        static void TestInsertionSort()
+        {
+            #region InsertionSort
+
+            var insertionSort = new InsertionSort<int>(new[]
+            {
+                5,1,3,4,2,8,6
+            });
+
+            Console.WriteLine(string.Join(',', insertionSort.Sort()));
+
+            #endregion
+        }
+
+        static void TestSelectionSort()
+        {
+            #region SelectionSort
+
+            var selectionSort = new SelectionSort<int>(new[]
+            {
+                5,1,3,4,2,8,6
+            });
+
+            Console.WriteLine(string.Join(',', selectionSort.Sort()));
+
+            #endregion
+        }
+
+        static void TestPrimeNumber()
+        {
+            #region PrimeNumber
+
+            var primeNumber = new PrimeNumber();
+
+            Console.WriteLine(string.Join(',', primeNumber.GetPrimeNumbers(1000)));
+            Console.WriteLine("389: " + primeNumber.IsPrime(389));
 
             #endregion
         }
