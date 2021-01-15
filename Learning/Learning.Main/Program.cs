@@ -6,6 +6,8 @@ using DataStructures.Core.Graphs.DFS;
 using DataStructures.Core.HashTable;
 using DataStructures.Core.Heap;
 using DataStructures.Core.LinkedList;
+using DataStructures.Core.NumberTheory.GCD;
+using DataStructures.Core.NumberTheory.LCM;
 using DataStructures.Core.NumberTheory.PrimeNumber;
 using DataStructures.Core.Queue;
 using DataStructures.Core.Search.BinarySearch;
@@ -72,7 +74,11 @@ namespace Learning.Main
 
             //TestSelectionSort();
 
-            TestPrimeNumber();
+            //TestPrimeNumber();
+
+            //TestGCD();
+
+            TestLCM();
 
             Console.ReadLine();
         }
@@ -586,6 +592,28 @@ namespace Learning.Main
 
             Console.WriteLine(string.Join(',', primeNumber.GetPrimeNumbers(1000)));
             Console.WriteLine("389: " + primeNumber.IsPrime(389));
+
+            #endregion
+        }
+
+        static void TestGCD()
+        {
+            #region GCD
+
+            var gcd = new GCD();
+
+            Console.WriteLine("GCD: " + gcd.GetGcd(11, 13));
+
+            #endregion
+        }
+
+        static void TestLCM()
+        {
+            #region LCM
+
+            var lcm = new LCM();
+
+            Console.WriteLine("LCM: " + lcm.GetLcm(11, 13));
 
             #endregion
         }
