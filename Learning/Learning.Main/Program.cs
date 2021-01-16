@@ -3,6 +3,8 @@ using DataStructures.Core.ArrayList;
 using DataStructures.Core.DynamicProgramming.Knapsack;
 using DataStructures.Core.Graphs.BFS;
 using DataStructures.Core.Graphs.DFS;
+using DataStructures.Core.Greedy.Dijkstra;
+using DataStructures.Core.Greedy.MST.Prims;
 using DataStructures.Core.HashTable;
 using DataStructures.Core.Heap;
 using DataStructures.Core.LinkedList;
@@ -78,7 +80,11 @@ namespace Learning.Main
 
             //TestGCD();
 
-            TestLCM();
+            //TestLCM();
+
+            //TestDijkstra();
+
+            TestPrims();
 
             Console.ReadLine();
         }
@@ -614,6 +620,48 @@ namespace Learning.Main
             var lcm = new LCM();
 
             Console.WriteLine("LCM: " + lcm.GetLcm(11, 13));
+
+            #endregion
+        }
+
+        static void TestDijkstra()
+        {
+            #region Dijkstra
+
+            var dijkstra = new Dijkstra(new[,]
+            {
+                {0, 4, 0, 0, 0, 0, 0, 8, 0},
+                {4, 0, 8, 0, 0, 0, 0, 11, 0},
+                {0, 8, 0, 7, 0, 4, 0, 0, 2},
+                {0, 0, 7, 0, 9, 14, 0, 0, 0},
+                {0, 0, 0, 9, 0, 10, 0, 0, 0},
+                {0, 0, 4, 14, 10, 0, 2, 0, 0},
+                {0, 0, 0, 0, 0, 2, 0, 1, 6},
+                {8, 11, 0, 0, 0, 0, 1, 0, 7},
+                {0, 0, 2, 0, 0, 0, 6, 7, 0}
+            });
+
+            var dist = dijkstra.ShortestPath(0);
+            Console.WriteLine(string.Join("\n", dist));
+
+            #endregion
+        }
+
+        static void TestPrims()
+        {
+            #region Prims
+
+            var prims = new Prims(new[,]
+            {
+                {0, 2, 0, 6, 0},
+                {2, 0, 3, 8, 5},
+                {0, 3, 0, 0, 7},
+                {6, 8, 0, 0, 9},
+                {0, 5, 7, 9, 0}
+            });
+
+            var dist = prims.MinimumSpanningTree();
+            Console.WriteLine(string.Join("\n", dist));
 
             #endregion
         }
