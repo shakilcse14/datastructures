@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="DynamicProgramming\MultiStageGraph\" />
-    <Folder Include="DynamicProgramming\FloydWarshall\" />
     <Folder Include="DynamicProgramming\MatrixMultiplication\" />
     <Folder Include="DynamicProgramming\LCS\" />
     <Folder Include="DynamicProgramming\OptimalBinarySearchTree\" />

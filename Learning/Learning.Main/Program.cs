@@ -3,6 +3,7 @@ using System.Linq;
 using DataStructures.Core.ArrayList;
 using DataStructures.Core.DynamicProgramming.BellmanFord;
 using DataStructures.Core.DynamicProgramming.Fibonacci;
+using DataStructures.Core.DynamicProgramming.FloydWarShall;
 using DataStructures.Core.DynamicProgramming.Knapsack;
 using DataStructures.Core.Graphs.BFS;
 using DataStructures.Core.Graphs.CycleDetection;
@@ -97,7 +98,9 @@ namespace Learning.Main
 
             //TestFibonacci();
 
-            TestBellmanFord();
+            //TestBellmanFord();
+
+            TestFloydWarshall();
 
             Console.ReadLine();
         }
@@ -117,6 +120,7 @@ namespace Learning.Main
             {
                 Console.WriteLine(single);
             }
+
             Console.WriteLine("\n");
             singlyLinkedList.Remove(2);
             singlyLinkedList.RemoveLast();
@@ -155,6 +159,7 @@ namespace Learning.Main
             {
                 Console.WriteLine(single);
             }
+
             Console.WriteLine("\n");
             doublyLinkedList.Remove(2);
             doublyLinkedList.RemoveLast();
@@ -183,7 +188,7 @@ namespace Learning.Main
             #region ArrayList
 
             Console.WriteLine("!!! Array List !!!");
-            var arrayList = new ArrayList<int> { 10, 20, 30, 40, 50, 60, 70, 80, 90 };
+            var arrayList = new ArrayList<int> {10, 20, 30, 40, 50, 60, 70, 80, 90};
 
             foreach (var number in arrayList)
             {
@@ -213,6 +218,7 @@ namespace Learning.Main
             {
                 Console.WriteLine(number);
             }
+
             Console.WriteLine("Length: " + arrayList.Length);
 
             #endregion
@@ -234,6 +240,7 @@ namespace Learning.Main
             Console.WriteLine(hashTable.Size);
             hashTable.Remove("B");
             Console.WriteLine(hashTable.Size);
+
             #endregion
         }
 
@@ -243,7 +250,7 @@ namespace Learning.Main
 
             var binarySearch = new BinarySearch<int>(new int[]
             {
-                1,2,3,4,5,6,7,8,9,10
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10
             });
 
             Console.WriteLine(binarySearch.Find(2));
@@ -259,7 +266,7 @@ namespace Learning.Main
 
             var bubbleSort = new BubbleSort<int>(new int[]
             {
-                5,1,3,4,2,8,6
+                5, 1, 3, 4, 2, 8, 6
             });
 
             Console.WriteLine(string.Join(',', bubbleSort.Sort()));
@@ -273,7 +280,7 @@ namespace Learning.Main
 
             var mergeSort = new MergeSort<int>(new int[]
             {
-                5,1,3,4,2,8,6
+                5, 1, 3, 4, 2, 8, 6
             });
 
             Console.WriteLine(string.Join(',', mergeSort.Sort()));
@@ -287,7 +294,7 @@ namespace Learning.Main
 
             var quickSort = new QuickSort<int>(new int[]
             {
-                5,1,3,4,2,8,6
+                5, 1, 3, 4, 2, 8, 6
             });
 
             Console.WriteLine(string.Join(',', quickSort.Sort()));
@@ -310,6 +317,7 @@ namespace Learning.Main
             {
                 Console.WriteLine(single);
             }
+
             Console.WriteLine("\n");
             circularLinkedList.Remove(2);
             circularLinkedList.RemoveLast();
@@ -343,7 +351,7 @@ namespace Learning.Main
             stack.Push(30);
             Console.WriteLine(stack.Pop());
             Console.WriteLine(stack.Peek());
-            
+
             #endregion
         }
 
@@ -377,6 +385,7 @@ namespace Learning.Main
             {
                 Console.WriteLine(queue);
             }
+
             Console.WriteLine("Dequeuing ... ");
             Console.WriteLine(priorityQueue.Dequeue());
             Console.WriteLine(priorityQueue.Dequeue());
@@ -394,7 +403,7 @@ namespace Learning.Main
 
             var heapSort = new HeapSort<int>(new int[]
             {
-                5,1,3,4,2,8,6
+                5, 1, 3, 4, 2, 8, 6
             });
 
             Console.WriteLine(string.Join(',', heapSort.Sort()));
@@ -475,6 +484,7 @@ namespace Learning.Main
             binarySearchTree.Remove(5);
             Console.WriteLine("InOrder");
             binarySearchTree.Traverse(TraverseType.InOrder);
+
             #endregion
         }
 
@@ -547,11 +557,12 @@ namespace Learning.Main
         {
             #region Knapsack
 
-            var knapsack = new Knapsack(15, 
-                new int [7]{10, 5, 15, 7, 6, 18, 3},
-                new int [7] { 2, 3, 5, 7, 1, 4, 1 });
+            var knapsack = new Knapsack(15,
+                new int [7] {10, 5, 15, 7, 6, 18, 3},
+                new int [7] {2, 3, 5, 7, 1, 4, 1});
             var x = knapsack.FindMaximum();
             Console.WriteLine(string.Join(',', x));
+
             #endregion
         }
 
@@ -565,7 +576,7 @@ namespace Learning.Main
 
             var x = knapsack.FindMaximum(Solution.Recursion);
             Console.WriteLine(string.Join(',', x));
-            
+
             x = knapsack.FindMaximum(Solution.Memoization);
             Console.WriteLine(string.Join(',', x));
 
@@ -581,7 +592,7 @@ namespace Learning.Main
 
             var insertionSort = new InsertionSort<int>(new[]
             {
-                5,1,3,4,2,8,6
+                5, 1, 3, 4, 2, 8, 6
             });
 
             Console.WriteLine(string.Join(',', insertionSort.Sort()));
@@ -595,7 +606,7 @@ namespace Learning.Main
 
             var selectionSort = new SelectionSort<int>(new[]
             {
-                5,1,3,4,2,8,6
+                5, 1, 3, 4, 2, 8, 6
             });
 
             Console.WriteLine(string.Join(',', selectionSort.Sort()));
@@ -761,6 +772,32 @@ namespace Learning.Main
 
             Console.WriteLine(string.Join(",", bellmanFord
                 .ShortestPath(0)));
+
+            #endregion
+        }
+
+
+        static void TestFloydWarshall()
+        {
+            #region FloydWarshall
+
+            var floydWarShall = new FloydWarshall();
+            var dist = floydWarShall.AllPairShortestPaths(new[,]
+            {
+                {0, 5, int.MaxValue, 10},
+                {int.MaxValue, 0, 3, int.MaxValue},
+                {int.MaxValue, int.MaxValue, 0, 1},
+                {int.MaxValue, int.MaxValue, int.MaxValue, 0}
+            });
+
+            for (var i = 0; i < dist.GetLength(0); i++)
+            {
+                for (var j = 0; j < dist.GetLength(1); j++)
+                {
+                    Console.Write(dist[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
 
             #endregion
         }

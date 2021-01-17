@@ -48,8 +48,14 @@ namespace DataStructures.Core.Greedy.Dijkstra
                     if (_visitedNodes[indexJ]) continue;
                     if (_connectedGraphWeights[minIndex, indexJ] <= 0) continue;
 
-                    if (_connectedGraphWeights[minIndex, indexJ] + _nodeWeights[minIndex] < _nodeWeights[indexJ])
-                        _nodeWeights[indexJ] = _connectedGraphWeights[minIndex, indexJ] + _nodeWeights[minIndex];
+                    int value;
+                    if (_nodeWeights[minIndex] == int.MaxValue)
+                        value = int.MaxValue;
+                    else
+                        value = _connectedGraphWeights[minIndex, indexJ] + _nodeWeights[minIndex];
+
+                    if (value  < _nodeWeights[indexJ])
+                        _nodeWeights[indexJ] = value;
                 }
 
                 pathWithWeight.Add(Tuple.Create(_nodeWeights[minIndex], string.Join(",", path)));
