@@ -11,7 +11,6 @@
     <Folder Include="DynamicProgramming\BellmanFord\" />
     <Folder Include="DynamicProgramming\LCS\" />
     <Folder Include="DynamicProgramming\OptimalBinarySearchTree\" />
-    <Folder Include="Greedy\MST\Krushkals\" />
     <Folder Include="Heap\Contracts\Interfaces\" />
     <Folder Include="Bits\" />
     <Folder Include="Trees\AVLTree\" />

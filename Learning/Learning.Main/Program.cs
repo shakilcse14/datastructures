@@ -2,8 +2,10 @@
 using DataStructures.Core.ArrayList;
 using DataStructures.Core.DynamicProgramming.Knapsack;
 using DataStructures.Core.Graphs.BFS;
+using DataStructures.Core.Graphs.CycleDetection;
 using DataStructures.Core.Graphs.DFS;
 using DataStructures.Core.Greedy.Dijkstra;
+using DataStructures.Core.Greedy.MST.Krushkals;
 using DataStructures.Core.Greedy.MST.Prims;
 using DataStructures.Core.HashTable;
 using DataStructures.Core.Heap;
@@ -84,7 +86,11 @@ namespace Learning.Main
 
             //TestDijkstra();
 
-            TestPrims();
+            //TestPrims();
+
+            //TestKrushkals();
+
+            TestGraphCycleDetection();
 
             Console.ReadLine();
         }
@@ -662,6 +668,61 @@ namespace Learning.Main
 
             var dist = prims.MinimumSpanningTree();
             Console.WriteLine(string.Join("\n", dist));
+
+            #endregion
+        }
+
+        static void TestKrushkals()
+        {
+            #region Krushkals
+
+            var krushkals = new Krushkals(4, 5);
+            krushkals.AddEdge(0, 1, 10);
+            krushkals.AddEdge(0, 2, 6);
+            krushkals.AddEdge(0, 3, 5);
+            krushkals.AddEdge(1, 3, 15);
+            krushkals.AddEdge(2, 3, 4);
+
+            var dist = krushkals.MinimumSpanningTree();
+            Console.WriteLine(string.Join("\n", dist));
+
+            #endregion
+        }
+
+        static void TestGraphCycleDetection()
+        {
+            #region GraphCycleDetection
+
+            var graphCycleDetection = new GraphCycleDetection(5, GraphType.Directed);
+            graphCycleDetection.AddEdge(1, 0);
+            graphCycleDetection.AddEdge(0, 2);
+            graphCycleDetection.AddEdge(2, 1);
+            graphCycleDetection.AddEdge(0, 3);
+            graphCycleDetection.AddEdge(3, 4);
+
+            Console.WriteLine(graphCycleDetection.HasCycle());
+
+            graphCycleDetection = new GraphCycleDetection(3, GraphType.Directed);
+            graphCycleDetection.AddEdge(0, 1);
+            graphCycleDetection.AddEdge(1, 2);
+
+            Console.WriteLine(graphCycleDetection.HasCycle());
+
+
+            graphCycleDetection = new GraphCycleDetection(5, GraphType.UnDirected);
+            graphCycleDetection.AddEdge(1, 0);
+            graphCycleDetection.AddEdge(0, 2);
+            graphCycleDetection.AddEdge(2, 1);
+            graphCycleDetection.AddEdge(0, 3);
+            graphCycleDetection.AddEdge(3, 4);
+
+            Console.WriteLine(graphCycleDetection.HasCycle());
+
+            graphCycleDetection = new GraphCycleDetection(3, GraphType.UnDirected);
+            graphCycleDetection.AddEdge(0, 1);
+            graphCycleDetection.AddEdge(1, 2);
+
+            Console.WriteLine(graphCycleDetection.HasCycle());
 
             #endregion
         }
