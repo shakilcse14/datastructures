@@ -8,7 +8,6 @@
     <Folder Include="DynamicProgramming\MultiStageGraph\" />
     <Folder Include="DynamicProgramming\FloydWarshall\" />
     <Folder Include="DynamicProgramming\MatrixMultiplication\" />
-    <Folder Include="DynamicProgramming\BellmanFord\" />
     <Folder Include="DynamicProgramming\LCS\" />
     <Folder Include="DynamicProgramming\OptimalBinarySearchTree\" />
     <Folder Include="Heap\Contracts\Interfaces\" />

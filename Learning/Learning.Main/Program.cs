@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using DataStructures.Core.ArrayList;
+using DataStructures.Core.DynamicProgramming.BellmanFord;
 using DataStructures.Core.DynamicProgramming.Fibonacci;
 using DataStructures.Core.DynamicProgramming.Knapsack;
 using DataStructures.Core.Graphs.BFS;
@@ -93,7 +95,9 @@ namespace Learning.Main
 
             //TestGraphCycleDetection();
 
-            TestFibonacci();
+            //TestFibonacci();
+
+            TestBellmanFord();
 
             Console.ReadLine();
         }
@@ -737,6 +741,26 @@ namespace Learning.Main
             var fibonacci = new Fibonacci();
 
             Console.WriteLine(string.Join(",", fibonacci.GetFibonacciNumbers(10)));
+
+            #endregion
+        }
+
+        static void TestBellmanFord()
+        {
+            #region Fibonacci
+
+            var bellmanFord = new BellmanFord(5);
+            bellmanFord.AddEdge(0, 1, -1);
+            bellmanFord.AddEdge(0, 2, 4);
+            bellmanFord.AddEdge(1, 2, 3);
+            bellmanFord.AddEdge(1, 3, 2);
+            bellmanFord.AddEdge(1, 4, 2);
+            bellmanFord.AddEdge(3, 2, 5);
+            bellmanFord.AddEdge(3, 1, 1);
+            bellmanFord.AddEdge(4, 3, -3);
+
+            Console.WriteLine(string.Join(",", bellmanFord
+                .ShortestPath(0)));
 
             #endregion
         }
