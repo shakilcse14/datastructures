@@ -1,5 +1,6 @@
 ﻿using System;
 using DataStructures.Core.ArrayList;
+using DataStructures.Core.DynamicProgramming.Fibonacci;
 using DataStructures.Core.DynamicProgramming.Knapsack;
 using DataStructures.Core.Graphs.BFS;
 using DataStructures.Core.Graphs.CycleDetection;
@@ -90,7 +91,9 @@ namespace Learning.Main
 
             //TestKrushkals();
 
-            TestGraphCycleDetection();
+            //TestGraphCycleDetection();
+
+            TestFibonacci();
 
             Console.ReadLine();
         }
@@ -723,6 +726,17 @@ namespace Learning.Main
             graphCycleDetection.AddEdge(1, 2);
 
             Console.WriteLine(graphCycleDetection.HasCycle());
+
+            #endregion
+        }
+
+        static void TestFibonacci()
+        {
+            #region Fibonacci
+
+            var fibonacci = new Fibonacci();
+
+            Console.WriteLine(string.Join(",", fibonacci.GetFibonacciNumbers(10)));
 
             #endregion
         }
