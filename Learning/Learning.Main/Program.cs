@@ -5,6 +5,7 @@ using DataStructures.Core.DynamicProgramming.BellmanFord;
 using DataStructures.Core.DynamicProgramming.Fibonacci;
 using DataStructures.Core.DynamicProgramming.FloydWarShall;
 using DataStructures.Core.DynamicProgramming.Knapsack;
+using DataStructures.Core.DynamicProgramming.LCS;
 using DataStructures.Core.Graphs.BFS;
 using DataStructures.Core.Graphs.CycleDetection;
 using DataStructures.Core.Graphs.DFS;
@@ -100,7 +101,9 @@ namespace Learning.Main
 
             //TestBellmanFord();
 
-            TestFloydWarshall();
+            //TestFloydWarshall();
+
+            TestLcs();
 
             Console.ReadLine();
         }
@@ -798,6 +801,16 @@ namespace Learning.Main
                 }
                 Console.WriteLine();
             }
+
+            #endregion
+        }
+
+        static void TestLcs()
+        {
+            #region Lcs
+
+            var lcs = new LongestCommonSubsequence();
+            Console.WriteLine(lcs.MaxLcs("AGGTAB", "GXTXAYB"));
 
             #endregion
         }
