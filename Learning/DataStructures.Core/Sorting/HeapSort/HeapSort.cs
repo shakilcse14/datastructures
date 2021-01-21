@@ -18,6 +18,7 @@ namespace DataStructures.Core.Sorting.HeapSort
         /// <returns></returns>
         public T[] Sort()
         {
+            // O(n)
             for (var i = (_items.Length / 2) - 1; i >= 0 ; i--)
                 Heapify(_items, i, _items.Length);
 
@@ -29,7 +30,7 @@ namespace DataStructures.Core.Sorting.HeapSort
         #region Private methods
 
         /// <summary>
-        /// Time complexity O(n)
+        /// Time complexity O(logn)
         /// </summary>
         private void Heapify(T[] items, int currentPosition, int length)
         {
