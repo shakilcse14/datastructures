@@ -6,6 +6,7 @@ using DataStructures.Core.DynamicProgramming.Fibonacci;
 using DataStructures.Core.DynamicProgramming.FloydWarShall;
 using DataStructures.Core.DynamicProgramming.Knapsack;
 using DataStructures.Core.DynamicProgramming.LCS;
+using DataStructures.Core.DynamicProgramming.MultiStageGraph;
 using DataStructures.Core.Graphs.BFS;
 using DataStructures.Core.Graphs.CycleDetection;
 using DataStructures.Core.Graphs.DFS;
@@ -103,7 +104,9 @@ namespace Learning.Main
 
             //TestFloydWarshall();
 
-            TestLcs();
+            //TestLcs();
+
+            TestMultiStageGraph();
 
             Console.ReadLine();
         }
@@ -811,6 +814,26 @@ namespace Learning.Main
 
             var lcs = new LongestCommonSubsequence();
             Console.WriteLine(lcs.MaxLcs("AGGTAB", "GXTXAYB"));
+
+            #endregion
+        }
+
+        static void TestMultiStageGraph()
+        {
+            #region MultiStageGraph
+
+            var msg = new MultiStageGraph(8, new int[,]
+            {
+                {int.MaxValue, 1, 2, 5, int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue},
+                {int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, 4, 11, int.MaxValue, int.MaxValue},
+                {int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, 9, 5, 16, int.MaxValue},
+                {int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, 2, int.MaxValue},
+                {int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, 18},
+                {int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, 13},
+                {int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue, 2}
+            });
+            var path = msg.ShortestPath();
+            Console.WriteLine(path.Item1 + "\n" + path.Item2);
 
             #endregion
         }

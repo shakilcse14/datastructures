@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DynamicProgramming\MultiStageGraph\" />
     <Folder Include="DynamicProgramming\MatrixMultiplication\" />
     <Folder Include="DynamicProgramming\OptimalBinarySearchTree\" />
     <Folder Include="Heap\Contracts\Interfaces\" />
