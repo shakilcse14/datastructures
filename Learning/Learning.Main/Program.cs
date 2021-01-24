@@ -7,6 +7,7 @@ using DataStructures.Core.DynamicProgramming.FloydWarShall;
 using DataStructures.Core.DynamicProgramming.Knapsack;
 using DataStructures.Core.DynamicProgramming.LCS;
 using DataStructures.Core.DynamicProgramming.MultiStageGraph;
+using DataStructures.Core.DynamicProgramming.OptimalBinarySearchTree;
 using DataStructures.Core.Graphs.BFS;
 using DataStructures.Core.Graphs.CycleDetection;
 using DataStructures.Core.Graphs.DFS;
@@ -106,7 +107,9 @@ namespace Learning.Main
 
             //TestLcs();
 
-            TestMultiStageGraph();
+            //TestMultiStageGraph();
+
+            TestOptimalBinarySearchTree();
 
             Console.ReadLine();
         }
@@ -802,6 +805,7 @@ namespace Learning.Main
                 {
                     Console.Write(dist[i, j] + "\t");
                 }
+
                 Console.WriteLine();
             }
 
@@ -834,6 +838,17 @@ namespace Learning.Main
             });
             var path = msg.ShortestPath();
             Console.WriteLine(path.Item1 + "\n" + path.Item2);
+
+            #endregion
+        }
+
+        static void TestOptimalBinarySearchTree()
+        {
+            #region OptimalBinarySearchTree
+
+            var ost = new OptimalSearchTree(new[] {10, 12, 20}, new[] {34, 8, 50});
+            var path = ost.FindCost();
+            Console.WriteLine(path);
 
             #endregion
         }

@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="DynamicProgramming\MatrixMultiplication\" />
-    <Folder Include="DynamicProgramming\OptimalBinarySearchTree\" />
     <Folder Include="Heap\Contracts\Interfaces\" />
     <Folder Include="Bits\" />
     <Folder Include="Backtracking\" />
