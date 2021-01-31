@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using DataStructures.Core.ArrayList;
+using DataStructures.Core.Backtracking.Subsets;
 using DataStructures.Core.DynamicProgramming.BellmanFord;
 using DataStructures.Core.DynamicProgramming.Fibonacci;
 using DataStructures.Core.DynamicProgramming.FloydWarShall;
@@ -112,7 +113,9 @@ namespace Learning.Main
 
             //TestOptimalBinarySearchTree();
 
-            TestMatrixMultiplication();
+            //TestMatrixMultiplication();
+
+            TestSubsets();
 
             Console.ReadLine();
         }
@@ -862,6 +865,17 @@ namespace Learning.Main
 
             var matrixMultiplication = new MatrixMultiplication(new[] { 1, 2, 3, 4 });
             Console.WriteLine(matrixMultiplication.TotalMultiplication());
+
+            #endregion
+        }
+
+        static void TestSubsets()
+        {
+            #region Subsets
+
+            var subsets = new Subsets(new[] { 1, 2, 3 });
+            var list = subsets.FindAll();
+            Console.WriteLine(string.Join("\n", list));
 
             #endregion
         }

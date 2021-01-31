@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="DynamicProgramming\EggDrop\" />
     <Folder Include="Heap\Contracts\Interfaces\" />
     <Folder Include="Bits\" />
-    <Folder Include="Backtracking\" />
     <Folder Include="Trees\AVLTree\" />
   </ItemGroup>
 
