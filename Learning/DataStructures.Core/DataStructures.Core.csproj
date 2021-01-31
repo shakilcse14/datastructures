@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DynamicProgramming\MatrixMultiplication\" />
     <Folder Include="Heap\Contracts\Interfaces\" />
     <Folder Include="Bits\" />
     <Folder Include="Backtracking\" />

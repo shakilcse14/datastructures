@@ -6,6 +6,7 @@ using DataStructures.Core.DynamicProgramming.Fibonacci;
 using DataStructures.Core.DynamicProgramming.FloydWarShall;
 using DataStructures.Core.DynamicProgramming.Knapsack;
 using DataStructures.Core.DynamicProgramming.LCS;
+using DataStructures.Core.DynamicProgramming.MatrixMultiplication;
 using DataStructures.Core.DynamicProgramming.MultiStageGraph;
 using DataStructures.Core.DynamicProgramming.OptimalBinarySearchTree;
 using DataStructures.Core.Graphs.BFS;
@@ -109,7 +110,9 @@ namespace Learning.Main
 
             //TestMultiStageGraph();
 
-            TestOptimalBinarySearchTree();
+            //TestOptimalBinarySearchTree();
+
+            TestMatrixMultiplication();
 
             Console.ReadLine();
         }
@@ -849,6 +852,16 @@ namespace Learning.Main
             var ost = new OptimalSearchTree(new[] {10, 12, 20}, new[] {34, 8, 50});
             var path = ost.FindCost();
             Console.WriteLine(path);
+
+            #endregion
+        }
+
+        static void TestMatrixMultiplication()
+        {
+            #region MatrixMultiplication
+
+            var matrixMultiplication = new MatrixMultiplication(new[] { 1, 2, 3, 4 });
+            Console.WriteLine(matrixMultiplication.TotalMultiplication());
 
             #endregion
         }
