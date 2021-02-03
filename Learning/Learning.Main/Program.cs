@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using DataStructures.Core.ArrayList;
+using DataStructures.Core.Backtracking;
 using DataStructures.Core.Backtracking.Subsets;
 using DataStructures.Core.DynamicProgramming.BellmanFord;
 using DataStructures.Core.DynamicProgramming.Fibonacci;
@@ -115,7 +116,9 @@ namespace Learning.Main
 
             //TestMatrixMultiplication();
 
-            TestSubsets();
+            //TestSubsets();
+
+            TestNQueen();
 
             Console.ReadLine();
         }
@@ -876,6 +879,16 @@ namespace Learning.Main
             var subsets = new Subsets(new[] { 1, 2, 3 });
             var list = subsets.FindAll();
             Console.WriteLine(string.Join("\n", list));
+
+            #endregion
+        }
+
+        static void TestNQueen()
+        {
+            #region N-Queen
+
+            var nQueen = new NQueen(new int[] {1, 2, 3, 4});
+            nQueen.FindAll();
 
             #endregion
         }
