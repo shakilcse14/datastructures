@@ -12,6 +12,9 @@ namespace DataStructures.Core.Backtracking
             _items = items;
         }
 
+        /// <summary>
+        /// Time complexity O(n!)
+        /// </summary>
         public void FindAll()
         {
             var position = new Stack<int>();

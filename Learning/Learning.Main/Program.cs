@@ -100,7 +100,7 @@ namespace Learning.Main
 
             //TestKrushkals();
 
-            //TestGraphCycleDetection();
+            TestGraphCycleDetection();
 
             //TestFibonacci();
 
@@ -118,7 +118,7 @@ namespace Learning.Main
 
             //TestSubsets();
 
-            TestNQueen();
+            //TestNQueen();
 
             Console.ReadLine();
         }
@@ -746,10 +746,10 @@ namespace Learning.Main
 
 
             graphCycleDetection = new GraphCycleDetection(5, GraphType.UnDirected);
-            graphCycleDetection.AddEdge(1, 0);
+            graphCycleDetection.AddEdge(0, 1);
             graphCycleDetection.AddEdge(0, 2);
-            graphCycleDetection.AddEdge(2, 1);
-            graphCycleDetection.AddEdge(0, 3);
+            graphCycleDetection.AddEdge(2, 3);
+            graphCycleDetection.AddEdge(2, 4);
             graphCycleDetection.AddEdge(3, 4);
 
             Console.WriteLine(graphCycleDetection.HasCycle());

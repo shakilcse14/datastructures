@@ -25,6 +25,8 @@ namespace DataStructures.Core.Graphs.CycleDetection
         public void AddEdge(int from, int to)
         {
             _edges[from, to] = 1;
+            if (_graphType == GraphType.UnDirected)
+                _edges[to, from] = 1;
         }
 
         public bool HasCycle()
@@ -39,26 +41,29 @@ namespace DataStructures.Core.Graphs.CycleDetection
             var parent = -1;
             var node = 0;
             _visited[node] = true;
-            while (true)
+
+            return AdjacentNode(parent, node);
+        }
+
+        private bool AdjacentNode(int parent, int node)
+        {
+            for (var index = 0; index < _visited.Length; index++)
             {
-                parent = node;
-                var notFound = true;
-                
-                for (var to = 0; to < _visited.Length; to++)
+                if (!_visited[index] && _edges[node, index] == 1)
                 {
-                    if (_visited[to] && _edges[node, to] == 1 && parent != to)
+                    _visited[index] = true;
+                    var result = AdjacentNode(node, index);
+                    if (result)
                         return true;
-                    if (!_visited[to] && _edges[node, to] == 1)
-                    {
-                        node = to;
-                        _visited[to] = true;
-                        notFound = false;
-                    }
+
+                    parent = index;
                 }
 
-                if (notFound)
-                    return false;
+                if (_visited[index] && _edges[node, index] == 1 && parent != index)
+                    return true;
             }
+
+            return false;
         }
 
         private bool DirectedCycle()

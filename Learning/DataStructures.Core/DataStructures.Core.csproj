@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Backtracking\GraphColoring\" />
+    <Folder Include="Backtracking\SumOfSubsets\" />
     <Folder Include="DynamicProgramming\EggDrop\" />
+    <Folder Include="DynamicProgramming\EditDistance\" />
+    <Folder Include="Graphs\ArticulationPoint\" />
     <Folder Include="Heap\Contracts\Interfaces\" />
     <Folder Include="Bits\" />
     <Folder Include="Trees\AVLTree\" />
