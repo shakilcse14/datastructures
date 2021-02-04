@@ -2,6 +2,7 @@
 using System.Linq;
 using DataStructures.Core.ArrayList;
 using DataStructures.Core.Backtracking;
+using DataStructures.Core.Backtracking.HamiltonianCycle;
 using DataStructures.Core.Backtracking.Subsets;
 using DataStructures.Core.DynamicProgramming.BellmanFord;
 using DataStructures.Core.DynamicProgramming.Fibonacci;
@@ -100,7 +101,7 @@ namespace Learning.Main
 
             //TestKrushkals();
 
-            TestGraphCycleDetection();
+            //TestGraphCycleDetection();
 
             //TestFibonacci();
 
@@ -119,6 +120,8 @@ namespace Learning.Main
             //TestSubsets();
 
             //TestNQueen();
+
+            TestHamiltonianCycle();
 
             Console.ReadLine();
         }
@@ -889,6 +892,25 @@ namespace Learning.Main
 
             var nQueen = new NQueen(new int[] {1, 2, 3, 4});
             nQueen.FindAll();
+
+            #endregion
+        }
+
+        static void TestHamiltonianCycle()
+        {
+            #region HamiltonianCycle
+
+            var hamiltonianCycle = new HamiltonianCycle(6,
+                new[,]
+                {
+                    {0, 0, 0, 0, 0, 0},
+                    {0, 0, 1, 1, 0, 1},
+                    {0, 1, 0, 1, 1, 1},
+                    {0, 1, 1, 0, 1, 0},
+                    {0, 0, 1, 1, 0, 1},
+                    {0, 1, 1, 0, 1, 0}
+                });
+            hamiltonianCycle.FindAll(1);
 
             #endregion
         }
