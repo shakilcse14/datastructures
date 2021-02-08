@@ -2,6 +2,7 @@
 using System.Linq;
 using DataStructures.Core.ArrayList;
 using DataStructures.Core.Backtracking;
+using DataStructures.Core.Backtracking.GraphColoring;
 using DataStructures.Core.Backtracking.HamiltonianCycle;
 using DataStructures.Core.Backtracking.Subsets;
 using DataStructures.Core.DynamicProgramming.BellmanFord;
@@ -121,7 +122,9 @@ namespace Learning.Main
 
             //TestNQueen();
 
-            TestHamiltonianCycle();
+            //TestHamiltonianCycle();
+
+            TestGraphColoring();
 
             Console.ReadLine();
         }
@@ -911,6 +914,22 @@ namespace Learning.Main
                     {0, 1, 1, 0, 1, 0}
                 });
             hamiltonianCycle.FindAll(1);
+
+            #endregion
+        }
+
+        static void TestGraphColoring()
+        {
+            #region GraphColoring
+
+            var graphColoring = new GraphColoring(3, 4, new[,]
+            {
+                {0, 1, 1, 1},
+                {1, 0, 1, 0},
+                {1, 1, 0, 1},
+                {1, 0, 1, 0}
+            });
+            graphColoring.Find();
 
             #endregion
         }
