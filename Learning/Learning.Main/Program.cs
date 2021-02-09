@@ -5,6 +5,7 @@ using DataStructures.Core.Backtracking;
 using DataStructures.Core.Backtracking.GraphColoring;
 using DataStructures.Core.Backtracking.HamiltonianCycle;
 using DataStructures.Core.Backtracking.Subsets;
+using DataStructures.Core.Backtracking.SumOfSubsets;
 using DataStructures.Core.DynamicProgramming.BellmanFord;
 using DataStructures.Core.DynamicProgramming.Fibonacci;
 using DataStructures.Core.DynamicProgramming.FloydWarShall;
@@ -124,7 +125,9 @@ namespace Learning.Main
 
             //TestHamiltonianCycle();
 
-            TestGraphColoring();
+            //TestGraphColoring();
+
+            TestSumOfSubsets();
 
             Console.ReadLine();
         }
@@ -930,6 +933,16 @@ namespace Learning.Main
                 {1, 0, 1, 0}
             });
             graphColoring.Find();
+
+            #endregion
+        }
+
+        static void TestSumOfSubsets()
+        {
+            #region SumOfSubsets
+
+            var sumOfSubsets = new SumOfSubsets(30, new[] {5, 10, 12, 13, 15, 18});
+            sumOfSubsets.FindAll();
 
             #endregion
         }
