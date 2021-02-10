@@ -7,6 +7,7 @@ using DataStructures.Core.Backtracking.HamiltonianCycle;
 using DataStructures.Core.Backtracking.Subsets;
 using DataStructures.Core.Backtracking.SumOfSubsets;
 using DataStructures.Core.DynamicProgramming.BellmanFord;
+using DataStructures.Core.DynamicProgramming.EggDrop;
 using DataStructures.Core.DynamicProgramming.Fibonacci;
 using DataStructures.Core.DynamicProgramming.FloydWarShall;
 using DataStructures.Core.DynamicProgramming.Knapsack;
@@ -127,7 +128,9 @@ namespace Learning.Main
 
             //TestGraphColoring();
 
-            TestSumOfSubsets();
+            //TestSumOfSubsets();
+
+            TestEggDrop();
 
             Console.ReadLine();
         }
@@ -943,6 +946,16 @@ namespace Learning.Main
 
             var sumOfSubsets = new SumOfSubsets(30, new[] {5, 10, 12, 13, 15, 18});
             sumOfSubsets.FindAll();
+
+            #endregion
+        }
+
+        static void TestEggDrop()
+        {
+            #region EggDrop
+
+            var eggDrop = new EggDrop(10, 2);
+            Console.WriteLine(eggDrop.Find());
 
             #endregion
         }
