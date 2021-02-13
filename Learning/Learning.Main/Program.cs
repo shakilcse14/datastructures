@@ -7,6 +7,7 @@ using DataStructures.Core.Backtracking.HamiltonianCycle;
 using DataStructures.Core.Backtracking.Subsets;
 using DataStructures.Core.Backtracking.SumOfSubsets;
 using DataStructures.Core.DynamicProgramming.BellmanFord;
+using DataStructures.Core.DynamicProgramming.EditDistance;
 using DataStructures.Core.DynamicProgramming.EggDrop;
 using DataStructures.Core.DynamicProgramming.Fibonacci;
 using DataStructures.Core.DynamicProgramming.FloydWarShall;
@@ -130,7 +131,9 @@ namespace Learning.Main
 
             //TestSumOfSubsets();
 
-            TestEggDrop();
+            //TestEggDrop();
+
+            TestEditDistance();
 
             Console.ReadLine();
         }
@@ -956,6 +959,16 @@ namespace Learning.Main
 
             var eggDrop = new EggDrop(10, 2);
             Console.WriteLine(eggDrop.Find());
+
+            #endregion
+        }
+
+        static void TestEditDistance()
+        {
+            #region EditDistance
+
+            var editDistance = new EditDistance();
+            Console.WriteLine(editDistance.Find("sunday", "saturday"));
 
             #endregion
         }

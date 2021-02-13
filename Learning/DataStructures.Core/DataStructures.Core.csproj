@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Backtracking\GraphColoring\" />
-    <Folder Include="DynamicProgramming\EditDistance\" />
     <Folder Include="DynamicProgramming\SumOfSubsets\" />
     <Folder Include="Graphs\ArticulationPoint\" />
     <Folder Include="Heap\Contracts\Interfaces\" />
