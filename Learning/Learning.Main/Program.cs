@@ -16,6 +16,7 @@ using DataStructures.Core.DynamicProgramming.LCS;
 using DataStructures.Core.DynamicProgramming.MatrixMultiplication;
 using DataStructures.Core.DynamicProgramming.MultiStageGraph;
 using DataStructures.Core.DynamicProgramming.OptimalBinarySearchTree;
+using DataStructures.Core.Graphs.ArticulationPoint;
 using DataStructures.Core.Graphs.BFS;
 using DataStructures.Core.Graphs.CycleDetection;
 using DataStructures.Core.Graphs.DFS;
@@ -133,7 +134,9 @@ namespace Learning.Main
 
             //TestEggDrop();
 
-            TestEditDistance();
+            //TestEditDistance();
+
+            TestArticulationPoint();
 
             Console.ReadLine();
         }
@@ -969,6 +972,41 @@ namespace Learning.Main
 
             var editDistance = new EditDistance();
             Console.WriteLine(editDistance.Find("sunday", "saturday"));
+
+            #endregion
+        }
+
+        static void TestArticulationPoint()
+        {
+            #region ArticulationPoint
+
+            var articulationPoint = new ArticulationPoint(5, new[,]
+            {
+                {false, true, true, true, false},
+                {true, false, true, false, false},
+                {true, true, false, false, false},
+                {true, false, false, false, true},
+                {false, false, false, true, false}
+            });
+            //var articulationPoint = new ArticulationPoint(4, new[,]
+            //{
+            //    { false, true, false, false},
+            //    { true, false, true, false},
+            //    { false, true, false, true},
+            //    { false, false, true, false}
+            //});
+            //var articulationPoint = new ArticulationPoint(7, new[,]
+            //{
+            //    { false, true, true, false, false, false, false},
+            //    { true, false, true, true, true, false, true},
+            //    { true, true, false, false, false, false, false},
+            //    { false, true, false, false, false, true, false},
+            //    { false, true, false, false, false, true, false},
+            //    { false, false, false, true, true, false, false},
+            //    { false, true, false, false, false, false, false}
+            //});
+
+            Console.WriteLine(articulationPoint.Find());
 
             #endregion
         }

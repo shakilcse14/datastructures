@@ -7,7 +7,7 @@
   <ItemGroup>
     <Folder Include="Backtracking\GraphColoring\" />
     <Folder Include="DynamicProgramming\SumOfSubsets\" />
-    <Folder Include="Graphs\ArticulationPoint\" />
+    <Folder Include="Graphs\AStar\" />
     <Folder Include="Heap\Contracts\Interfaces\" />
     <Folder Include="Bits\" />
     <Folder Include="Trees\AVLTree\" />
