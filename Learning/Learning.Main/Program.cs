@@ -136,7 +136,9 @@ namespace Learning.Main
 
             //TestEditDistance();
 
-            TestArticulationPoint();
+            //TestArticulationPoint();
+
+            TestSumOfSubsetsDp();
 
             Console.ReadLine();
         }
@@ -1007,6 +1009,17 @@ namespace Learning.Main
             //});
 
             Console.WriteLine(articulationPoint.Find());
+
+            #endregion
+        }
+
+        static void TestSumOfSubsetsDp()
+        {
+            #region SumOfSubset
+
+            var sumOfSubsets = new DataStructures.Core.DynamicProgramming.SumOfSubsets.SumOfSubsets();
+            Console.WriteLine(sumOfSubsets.Find(new[] { 3, 34, 4, 12, 5, 2 }, 9));
+            Console.WriteLine(sumOfSubsets.Find(new[] { 3, 34, 4, 12, 5, 2 }, 30));
 
             #endregion
         }
