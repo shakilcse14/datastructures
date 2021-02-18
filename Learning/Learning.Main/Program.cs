@@ -17,6 +17,7 @@ using DataStructures.Core.DynamicProgramming.MatrixMultiplication;
 using DataStructures.Core.DynamicProgramming.MultiStageGraph;
 using DataStructures.Core.DynamicProgramming.OptimalBinarySearchTree;
 using DataStructures.Core.Graphs.ArticulationPoint;
+using DataStructures.Core.Graphs.AStar;
 using DataStructures.Core.Graphs.BFS;
 using DataStructures.Core.Graphs.CycleDetection;
 using DataStructures.Core.Graphs.DFS;
@@ -138,7 +139,9 @@ namespace Learning.Main
 
             //TestArticulationPoint();
 
-            TestSumOfSubsetsDp();
+            //TestSumOfSubsetsDp();
+
+            TestAStar();
 
             Console.ReadLine();
         }
@@ -1020,6 +1023,26 @@ namespace Learning.Main
             var sumOfSubsets = new DataStructures.Core.DynamicProgramming.SumOfSubsets.SumOfSubsets();
             Console.WriteLine(sumOfSubsets.Find(new[] { 3, 34, 4, 12, 5, 2 }, 9));
             Console.WriteLine(sumOfSubsets.Find(new[] { 3, 34, 4, 12, 5, 2 }, 30));
+
+            #endregion
+        }
+
+        static void TestAStar()
+        {
+            #region AStar
+
+            var aStar = new AStar();
+            aStar.AddEdge('s', 'b', 4, 14);
+            aStar.AddEdge('s', 'c', 3);
+            aStar.AddEdge('b', 'f', 5, 12);
+            aStar.AddEdge('b', 'e', 12);
+            aStar.AddEdge('c', 'e', 10, 11);
+            aStar.AddEdge('c', 'd', 7);
+            aStar.AddEdge('f', 'g', 16, 11);
+            aStar.AddEdge('d', 'e', 2, 6);
+            aStar.AddEdge('e', 'g', 5, 4);
+
+            aStar.FindRoute('s', 'g');
 
             #endregion
         }
