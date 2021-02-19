@@ -19,6 +19,7 @@ using DataStructures.Core.DynamicProgramming.OptimalBinarySearchTree;
 using DataStructures.Core.Graphs.ArticulationPoint;
 using DataStructures.Core.Graphs.AStar;
 using DataStructures.Core.Graphs.BFS;
+using DataStructures.Core.Graphs.BST;
 using DataStructures.Core.Graphs.CycleDetection;
 using DataStructures.Core.Graphs.DFS;
 using DataStructures.Core.Greedy.Dijkstra;
@@ -141,7 +142,9 @@ namespace Learning.Main
 
             //TestSumOfSubsetsDp();
 
-            TestAStar();
+            //TestAStar();
+
+            TeatBST();
 
             Console.ReadLine();
         }
@@ -1043,6 +1046,30 @@ namespace Learning.Main
             aStar.AddEdge('e', 'g', 5, 4);
 
             aStar.FindRoute('s', 'g');
+
+            #endregion
+        }
+
+        static void TeatBST()
+        {
+            #region BST
+
+            var bst = new BestFirstSearch();
+            bst.AddEdge(0, 1, 3);
+            bst.AddEdge(0, 2, 6);
+            bst.AddEdge(0, 3, 5);
+            bst.AddEdge(1, 4, 9);
+            bst.AddEdge(1, 5, 8);
+            bst.AddEdge(2, 6, 12);
+            bst.AddEdge(2, 7, 14);
+            bst.AddEdge(3, 8, 7);
+            bst.AddEdge(8, 9, 5);
+            bst.AddEdge(8, 10, 6);
+            bst.AddEdge(9, 11, 1);
+            bst.AddEdge(9, 12, 10);
+            bst.AddEdge(9, 13, 2);
+
+            bst.Find(0, 9);
 
             #endregion
         }
