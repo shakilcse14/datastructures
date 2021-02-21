@@ -6,6 +6,7 @@ using DataStructures.Core.Backtracking.GraphColoring;
 using DataStructures.Core.Backtracking.HamiltonianCycle;
 using DataStructures.Core.Backtracking.Subsets;
 using DataStructures.Core.Backtracking.SumOfSubsets;
+using DataStructures.Core.Bits;
 using DataStructures.Core.DynamicProgramming.BellmanFord;
 using DataStructures.Core.DynamicProgramming.EditDistance;
 using DataStructures.Core.DynamicProgramming.EggDrop;
@@ -147,7 +148,9 @@ namespace Learning.Main
 
             //TeatBST();
 
-            TestAVLTree();
+            //TestAVLTree();
+
+            TestBits();
 
             Console.ReadLine();
         }
@@ -1114,6 +1117,18 @@ namespace Learning.Main
             Console.WriteLine();
 
             avlTree.PreOrder();
+
+            #endregion
+        }
+
+        static void TestBits()
+        {
+            #region Bits
+
+            var bit = new BitsBasic();
+            Console.WriteLine(bit.GetBit(105, 6));
+            Console.WriteLine(bit.SetBit(165, 6));
+            Console.WriteLine(bit.ClearBit(105, 6));
 
             #endregion
         }

@@ -8,7 +8,6 @@
     <Folder Include="Backtracking\GraphColoring\" />
     <Folder Include="Graphs\BST\" />
     <Folder Include="Heap\Contracts\Interfaces\" />
-    <Folder Include="Bits\" />
     <Folder Include="Trees\AVLTree\" />
   </ItemGroup>
 
