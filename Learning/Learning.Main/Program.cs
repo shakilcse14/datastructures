@@ -40,6 +40,7 @@ using DataStructures.Core.Sorting.MergeSort;
 using DataStructures.Core.Sorting.QuickSort;
 using DataStructures.Core.Sorting.SelectionSort;
 using DataStructures.Core.Stack;
+using DataStructures.Core.Trees.AVLTree;
 using DataStructures.Core.Trees.BinarySearchTree;
 using DataStructures.Core.Trees.BinaryTree;
 using DataStructures.Core.Trees.Contracts;
@@ -144,7 +145,9 @@ namespace Learning.Main
 
             //TestAStar();
 
-            TeatBST();
+            //TeatBST();
+
+            TestAVLTree();
 
             Console.ReadLine();
         }
@@ -1070,6 +1073,31 @@ namespace Learning.Main
             bst.AddEdge(9, 13, 2);
 
             bst.Find(0, 9);
+
+            #endregion
+        }
+
+        static void TestAVLTree()
+        {
+            #region AVLTree
+
+            var avlTree = new AVLTree();
+            avlTree.Insert(10);
+            avlTree.Insert(20);
+            avlTree.Insert(30);
+            avlTree.Insert(40);
+            avlTree.Insert(50);
+            avlTree.Insert(25);
+
+            //avlTree.Insert(40);
+            //avlTree.Insert(20);
+            //avlTree.Insert(10);
+            //avlTree.Insert(25);
+            //avlTree.Insert(30);
+            //avlTree.Insert(22);
+            //avlTree.Insert(50);
+
+            avlTree.PreOrder();
 
             #endregion
         }
