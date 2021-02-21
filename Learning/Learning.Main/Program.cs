@@ -1082,12 +1082,12 @@ namespace Learning.Main
             #region AVLTree
 
             var avlTree = new AVLTree();
-            avlTree.Insert(10);
-            avlTree.Insert(20);
-            avlTree.Insert(30);
-            avlTree.Insert(40);
-            avlTree.Insert(50);
-            avlTree.Insert(25);
+            //avlTree.Insert(10);
+            //avlTree.Insert(20);
+            //avlTree.Insert(30);
+            //avlTree.Insert(40);
+            //avlTree.Insert(50);
+            //avlTree.Insert(25);
 
             //avlTree.Insert(40);
             //avlTree.Insert(20);
@@ -1096,6 +1096,22 @@ namespace Learning.Main
             //avlTree.Insert(30);
             //avlTree.Insert(22);
             //avlTree.Insert(50);
+
+            avlTree.Insert(9);
+            avlTree.Insert(5);
+            avlTree.Insert(10);
+            avlTree.Insert(0);
+            avlTree.Insert(6);
+            avlTree.Insert(11);
+            avlTree.Insert(-1);
+            avlTree.Insert(1);
+            avlTree.Insert(2);
+
+            avlTree.PreOrder();
+
+            avlTree.Delete(10);
+
+            Console.WriteLine();
 
             avlTree.PreOrder();
 
