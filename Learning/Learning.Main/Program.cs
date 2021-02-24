@@ -1130,6 +1130,11 @@ namespace Learning.Main
             Console.WriteLine(bit.SetBit(165, 6));
             Console.WriteLine(bit.ClearBit(105, 6));
 
+            Console.WriteLine(bit.ToggleBit(105, 6));
+            Console.WriteLine(bit.ChangeBit(6, 5, 1));
+
+            Console.WriteLine(bit.CountSetBits(2321));
+
             #endregion
         }
     }
