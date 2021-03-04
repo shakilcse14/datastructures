@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using DataStructures.Core.ArrayList;
 using DataStructures.Core.Backtracking;
 using DataStructures.Core.Backtracking.GraphColoring;
@@ -138,7 +137,7 @@ namespace Learning.Main
 
             //TestEggDrop();
 
-            //TestEditDistance();
+            TestEditDistance();
 
             //TestArticulationPoint();
 
@@ -150,7 +149,7 @@ namespace Learning.Main
 
             //TestAVLTree();
 
-            TestBits();
+            //TestBits();
 
             Console.ReadLine();
         }
