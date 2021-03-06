@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace CrackingTheCodeInterview.ArraysAndStrings
 {
@@ -113,7 +114,7 @@ namespace CrackingTheCodeInterview.ArraysAndStrings
             var charArray = value.ToCharArray();
 
             var totalSpaces = 0;
-            var index = 0;
+            int index;
             for (index = 0; index < charArray.Length; index++)
             {
                 if (charArray[index].Equals(' '))
@@ -147,6 +148,34 @@ namespace CrackingTheCodeInterview.ArraysAndStrings
             }
 
             return newCharArray;
+        }
+
+        /// <summary>
+        /// Time complexity O(n)
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public string StringCompression(string value)
+        {
+            var valueCharArray = value.ToCharArray();
+
+            var targetChar = valueCharArray[0];
+            var stringBuilder = new StringBuilder();
+            var count = 1;
+            for (var index = 1; index < valueCharArray.Length; index++)
+            {
+                if (targetChar == valueCharArray[index])
+                    count++;
+                else
+                {
+                    stringBuilder.Append(targetChar.ToString() + count);
+                    targetChar = valueCharArray[index];
+                    count = 1;
+                }
+            }
+            stringBuilder.Append(targetChar.ToString() + count);
+
+            return stringBuilder.ToString();
         }
 
         #region Private Methods

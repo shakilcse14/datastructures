@@ -14,7 +14,7 @@ namespace CrackingTheCodingInterView.Main
         static void TestArrayAndStrings()
         {
             var arraysAndStrings = new ArraysAndStrings();
-            
+
             /*var value = "GEeks";
             Console.WriteLine($"{value} = {arraysAndStrings.IsUnique(value)}");*/
 
@@ -28,11 +28,13 @@ namespace CrackingTheCodingInterView.Main
 
             //Console.WriteLine(arraysAndStrings.IsPermutationPalindrome("Tact Coa"));
 
-            Console.WriteLine(arraysAndStrings.IsOneAway("pale", "ple"));
-            Console.WriteLine(arraysAndStrings.IsOneAway("pales", "pale"));
-            Console.WriteLine(arraysAndStrings.IsOneAway("pale", "bale"));
-            Console.WriteLine(arraysAndStrings.IsOneAway("pale", "bake"));
-            Console.WriteLine(arraysAndStrings.IsOneAway("pale", "peal"));
+            //Console.WriteLine(arraysAndStrings.IsOneAway("pale", "ple"));
+            //Console.WriteLine(arraysAndStrings.IsOneAway("pales", "pale"));
+            //Console.WriteLine(arraysAndStrings.IsOneAway("pale", "bale"));
+            //Console.WriteLine(arraysAndStrings.IsOneAway("pale", "bake"));
+            //Console.WriteLine(arraysAndStrings.IsOneAway("pale", "peal"));
+
+            Console.WriteLine(arraysAndStrings.StringCompression("aabcccccaaa"));
         }
     }
 }
