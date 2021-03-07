@@ -34,7 +34,8 @@ namespace CrackingTheCodingInterView.Main
             //Console.WriteLine(arraysAndStrings.IsOneAway("pale", "bake"));
             //Console.WriteLine(arraysAndStrings.IsOneAway("pale", "peal"));
 
-            Console.WriteLine(arraysAndStrings.StringCompression("aabcccccaaa"));
+            //Console.WriteLine(arraysAndStrings.StringCompression("aabcccccaaa"));
+            Console.WriteLine(arraysAndStrings.StringRotation("waterbottle", "erbottlewat"));
         }
     }
 }

@@ -178,7 +178,135 @@ namespace CrackingTheCodeInterview.ArraysAndStrings
             return stringBuilder.ToString();
         }
 
+        public int[,] ZeroMatrix(int[,] matrix)
+        {
+
+            return matrix;
+        }
+
+        public int[][] RotateMatrix(int[][] matrix)
+        {
+
+            return matrix;
+        }
+
+        public bool StringRotation(string fString, string sString)
+        {
+            return IsSubStringKmp(fString, sString);
+            //return IsSubstringNaive(fString, sString);
+        }
+
+
         #region Private Methods
+
+        /// <summary>
+        /// Time complexity O(n + m)
+        /// </summary>
+        /// <param name="fString"></param>
+        /// <param name="sString"></param>
+        /// <returns></returns>
+        private bool IsSubStringKmp(string fString, string sString)
+        {
+            if (fString.Length <= 0 && sString.Length <= 0)
+                return true;
+            if (fString.Length != sString.Length)
+                return false;
+
+            var fStringCharArray = (fString + fString).ToCharArray();
+            var sStringCharArray = sString.ToCharArray();
+
+            var countArray = new int[sStringCharArray.Length];
+            var indexJ = 0;
+            for (var indexI = 1; indexI < sString.Length; indexI++)
+            {
+                if (sStringCharArray[indexI] == sStringCharArray[indexJ])
+                {
+                    countArray[indexI] = indexJ + 1;
+                    indexJ++;
+                }
+                else
+                {
+                    if (indexJ > 0)
+                    {
+                        indexJ = countArray[indexJ - 1];
+                        indexI--;
+                    }
+                    else
+                        countArray[indexI] = 0;
+                }
+            }
+
+            var indexS = 0;
+            for (var indexF = 0; indexF < fStringCharArray.Length; indexF++)
+            {
+                if (indexS >= sStringCharArray.Length)
+                    return true;
+                if (fStringCharArray[indexF] == sStringCharArray[indexS])
+                    indexS++;
+                else
+                {
+                    if (indexS > 0)
+                    {
+                        indexS = countArray[indexS - 1];
+                        indexF--;
+                    }
+                    else
+                        indexS = 0;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Time complexity O(n.m)
+        /// </summary>
+        /// <param name="fString"></param>
+        /// <param name="sString"></param>
+        /// <returns></returns>
+        private bool IsSubstringNaive(string fString, string sString)
+        {
+            if (fString.Length <= 0 && sString.Length <= 0)
+                return true;
+            if (fString.Length != sString.Length)
+                return false;
+            var fStringCharArray = (fString + fString).ToCharArray();
+            var sStringCharArray = sString.ToCharArray();
+
+            var indexS = 0;
+            var hasMatch = false;
+            var indexF = 0;
+            var lastMatchedIndex = 1;
+            while (indexF < fStringCharArray.Length)
+            {
+                if (indexS >= sStringCharArray.Length)
+                    return true;
+                if (fStringCharArray[indexF] == sStringCharArray[indexS])
+                {
+                    if (!hasMatch)
+                    {
+                        hasMatch = true;
+                        lastMatchedIndex = indexF;
+                    }
+
+                    indexF++;
+                    indexS++;
+                }
+                else
+                {
+                    if (hasMatch)
+                    {
+                        indexS = 0;
+                        indexF = lastMatchedIndex + 1;
+                        hasMatch = false;
+                    }
+                    else
+                        indexF++;
+                }
+            }
+
+            return false;
+        }
 
         /// <summary>
         /// Time complexity O(n)
