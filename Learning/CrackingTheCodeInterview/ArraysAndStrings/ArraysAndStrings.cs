@@ -178,14 +178,106 @@ namespace CrackingTheCodeInterview.ArraysAndStrings
             return stringBuilder.ToString();
         }
 
-        public int[,] ZeroMatrix(int[,] matrix)
+        public int[][] ZeroMatrix(int[][] matrix)
         {
+            var firtRowZero = false;
+            var firstColZero = false;
+
+            for (var index = 0; index < matrix.Length; index++)
+            {
+                if (matrix[index][0] == 0)
+                {
+                    firstColZero = true;
+                    break;
+                }
+            }
+
+            for (var index = 0; index < matrix[0].Length; index++)
+            {
+                if (matrix[0][index] == 0)
+                {
+                    firtRowZero = true;
+                    break;
+                }
+            }
+
+            for (var indexI = 1; indexI < matrix.Length; indexI++)
+            {
+                for (var indexJ = 1; indexJ < matrix[indexI].Length; indexJ++)
+                {
+                    if (matrix[indexI][indexJ] == 0)
+                    {
+                        matrix[0][indexJ] = 0;
+                        matrix[indexI][0] = 0;
+                    }
+                }
+            }
+
+
+            for (var index = 1; index < matrix.Length; index++)
+            {
+                if (matrix[index][0] == 0)
+                {
+                    for (var indexJ = 0; indexJ < matrix[0].Length; indexJ++)
+                    {
+                        matrix[index][indexJ] = 0;
+                    }
+                }
+            }
+
+            for (var index = 1; index < matrix[0].Length; index++)
+            {
+                if (matrix[0][index] == 0)
+                {
+                    for (var indexJ = 0; indexJ < matrix.Length; indexJ++)
+                    {
+                        matrix[indexJ][index] = 0;
+                    }
+                }
+            }
+
+            if (firtRowZero)
+            {
+                for (var index = 0; index < matrix[0].Length; index++)
+                {
+                    matrix[0][index] = 0;
+                }
+            }
+
+            if (firstColZero)
+            {
+                for (var index = 0; index < matrix.Length; index++)
+                {
+                    matrix[index][0] = 0;
+                }
+            }
 
             return matrix;
         }
 
         public int[][] RotateMatrix(int[][] matrix)
         {
+            // Transpose matrix (row into column, column into row)
+            for (var indexI = 0; indexI < matrix.Length; indexI++)
+            {
+                for (var indexJ = indexI; indexJ < matrix.Length; indexJ++)
+                {
+                    var temp = matrix[indexI][indexJ];
+                    matrix[indexI][indexJ] = matrix[indexJ][indexI];
+                    matrix[indexJ][indexI] = temp;
+                }
+            }
+
+            var indexR = matrix.Length - 1;
+            for (var indexL = 0; indexL < matrix.Length / 2 && indexR >= 0; indexL++, indexR--)
+            {
+                for (var indexI = 0; indexI < matrix.Length; indexI++)
+                {
+                    var temp = matrix[indexI][indexL];
+                    matrix[indexI][indexL] = matrix[indexI][indexR];
+                    matrix[indexI][indexR] = temp;
+                }
+            }
 
             return matrix;
         }

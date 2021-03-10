@@ -35,7 +35,21 @@ namespace CrackingTheCodingInterView.Main
             //Console.WriteLine(arraysAndStrings.IsOneAway("pale", "peal"));
 
             //Console.WriteLine(arraysAndStrings.StringCompression("aabcccccaaa"));
-            Console.WriteLine(arraysAndStrings.StringRotation("waterbottle", "erbottlewat"));
+            //Console.WriteLine(arraysAndStrings.StringRotation("waterbottle", "erbottlewat"));
+            //arraysAndStrings.RotateMatrix(new[]
+            //{
+            //    new[] {5, 1, 9, 11},
+            //    new[] {2, 4, 8, 10},
+            //    new[] {13, 3, 6, 7},
+            //    new[] {15, 14, 12, 16}
+            //});
+
+            arraysAndStrings.ZeroMatrix(new[]
+            {
+                new[] {0, 1, 2, 0},
+                new[] {3, 4, 5, 2},
+                new[] {1, 3, 1, 5}
+            });
         }
     }
 }
