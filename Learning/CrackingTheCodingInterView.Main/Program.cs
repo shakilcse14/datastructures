@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using CrackingTheCodeInterview.ArraysAndStrings;
+using CrackingTheCodeInterview.LinkedLists;
 
 namespace CrackingTheCodingInterView.Main
 {
@@ -8,7 +9,64 @@ namespace CrackingTheCodingInterView.Main
     {
         static void Main(string[] args)
         {
-            TestArrayAndStrings();
+            //TestArrayAndStrings();
+            TestLinkedList();
+        }
+
+        static void TestLinkedList()
+        {
+            var linkedLists = new LinkedLists();
+            //var headNode = new ListNode()
+            //{
+            //    Data = "1",
+            //    Next = new ListNode()
+            //    {
+            //        Data = "4",
+            //        Next = new ListNode()
+            //        {
+            //            Data = "1",
+            //            Next = new ListNode()
+            //            {
+            //                Data = "4",
+            //                Next = new ListNode()
+            //                {
+            //                    Data = "4",
+            //                    Next = null
+            //                }
+            //            }
+            //        }
+            //    }
+            //};
+            //linkedLists.RemoveDuplicatesFromUnSorted(headNode);
+            var toDelete = new ListNode()
+            {
+                Data = "5",
+                Next = new ListNode()
+                {
+                    Data = "3",
+                    Next = new ListNode()
+                    {
+                        Data = "2",
+                        Next = null
+                    }
+                }
+            };
+            var headNode = new ListNode()
+            {
+                Data = "4",
+                Next = new ListNode()
+                {
+                    Data = "1",
+                    Next = new ListNode()
+                    {
+                        Data = "6",
+                        Next = toDelete
+                    }
+                }
+            };
+
+            //Console.WriteLine(linkedLists.ReturnKthLastElement(headNode, 2));
+            linkedLists.DeleteMiddleNode(toDelete);
         }
 
         static void TestArrayAndStrings()
@@ -44,12 +102,12 @@ namespace CrackingTheCodingInterView.Main
             //    new[] {15, 14, 12, 16}
             //});
 
-            arraysAndStrings.ZeroMatrix(new[]
-            {
-                new[] {0, 1, 2, 0},
-                new[] {3, 4, 5, 2},
-                new[] {1, 3, 1, 5}
-            });
+            //arraysAndStrings.ZeroMatrix(new[]
+            //{
+            //    new[] {0, 1, 2, 0},
+            //    new[] {3, 4, 5, 2},
+            //    new[] {1, 3, 1, 5}
+            //});
         }
     }
 }
