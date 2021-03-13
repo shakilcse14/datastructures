@@ -66,7 +66,58 @@ namespace CrackingTheCodingInterView.Main
             };
 
             //Console.WriteLine(linkedLists.ReturnKthLastElement(headNode, 2));
-            linkedLists.DeleteMiddleNode(toDelete);
+            //linkedLists.DeleteMiddleNode(toDelete);
+            //linkedLists.Partition(headNode, 2);
+            //linkedLists.AddTwoNumbersReverseOrder(new ListNode()
+            //{
+            //    Data = "9",
+            //    Next = new ListNode()
+            //    {
+            //        Data = "8",
+            //        Next = new ListNode()
+            //        {
+            //            Data = "9",
+            //            Next = null
+            //        }
+            //    }
+            //}, new ListNode()
+            //{
+            //    Data = "5",
+            //    Next = new ListNode()
+            //    {
+            //        Data = "7",
+            //        Next = new ListNode()
+            //        {
+            //            Data = "6",
+            //            Next = null
+            //        }
+            //    }
+            //});
+            linkedLists.AddTwoNumbersNonReverseOrder(new ListNode()
+            {
+                Data = "3",
+                Next = new ListNode()
+                {
+                    Data = "4",
+                    Next = new ListNode()
+                    {
+                        Data = "2",
+                        Next = null
+                    }
+                }
+            }, new ListNode()
+            {
+                Data = "4",
+                Next = new ListNode()
+                {
+                    Data = "6",
+                    Next = new ListNode()
+                    {
+                        Data = "5",
+                        Next = null
+                    }
+                }
+            });
         }
 
         static void TestArrayAndStrings()

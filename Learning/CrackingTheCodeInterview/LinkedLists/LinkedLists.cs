@@ -77,7 +77,155 @@ namespace CrackingTheCodeInterview.LinkedLists
             node.Next = node.Next.Next;
         }
 
+        public ListNode Partition(ListNode headListNode, int value)
+        {
+            ListNode lessNodePoint = null;
+            ListNode greaterNodePoint = null;
+            ListNode headLessNodePoint = null;
+            ListNode headGreaterNodePoint = null;
+            var currentNode = headListNode;
+
+            while (currentNode != null)
+            {
+                if (int.Parse(currentNode.Data) < value)
+                {
+                    if (lessNodePoint == null)
+                    {
+                        lessNodePoint = currentNode;
+                        headLessNodePoint = lessNodePoint;
+                    }
+                    else
+                    {
+                        lessNodePoint.Next = currentNode;
+                        lessNodePoint = currentNode;
+                    }
+                }
+                else
+                {
+                    if (greaterNodePoint == null)
+                    {
+                        greaterNodePoint = currentNode;
+                        headGreaterNodePoint = currentNode;
+                    }
+                    else
+                    {
+                        greaterNodePoint.Next = currentNode;
+                        greaterNodePoint = currentNode;
+                    }
+                }
+
+                currentNode = currentNode.Next;
+            }
+
+            if (lessNodePoint != null && headGreaterNodePoint != null)
+            {
+                lessNodePoint.Next = headGreaterNodePoint;
+                greaterNodePoint.Next = null;
+                headListNode = headLessNodePoint;
+            }
+
+            return headListNode;
+        }
+
+        /// <summary>
+        /// Time complexity O(n)
+        /// </summary>
+        /// <param name="firstHeadNode"></param>
+        /// <param name="secondHeadNode"></param>
+        /// <returns></returns>
+        public ListNode AddTwoNumbersReverseOrder(ListNode firstHeadNode, ListNode secondHeadNode)
+        {
+            var carry = 0;
+            var currentNode = new ListNode();
+            var headCurrentNode = currentNode;
+
+            while (firstHeadNode != null || secondHeadNode != null)
+            {
+                var firstValue = firstHeadNode == null ? 0 : int.Parse(firstHeadNode.Data);
+
+                var secondValue = secondHeadNode == null ? 0 : int.Parse(secondHeadNode.Data);
+
+                var result = firstValue + secondValue + carry;
+                if (result > 9)
+                {
+                    carry = result / 10;
+                    result %= 10;
+                }
+                else
+                    carry = 0;
+
+                currentNode.Next = new ListNode()
+                {
+                    Data = result.ToString(),
+                    Next = null
+                };
+                currentNode = currentNode.Next;
+                firstHeadNode = firstHeadNode?.Next;
+                secondHeadNode = secondHeadNode?.Next;
+            }
+
+            if (carry != 0)
+            {
+                currentNode.Next = new ListNode()
+                {
+                    Data = carry.ToString(),
+                    Next = null
+                };
+            }
+
+            headCurrentNode = headCurrentNode.Next;
+            return headCurrentNode;
+        }
+
+        /// <summary>
+        /// Time complexity O(n)
+        /// </summary>
+        /// <param name="firstHeadNode"></param>
+        /// <param name="secondHeadNode"></param>
+        /// <returns></returns>
+        public ListNode AddTwoNumbersNonReverseOrder(ListNode firstHeadNode, ListNode secondHeadNode)
+        {
+            var node = new ListNode();
+            AddReverseOrder(firstHeadNode, secondHeadNode, firstHeadNode, node);
+
+            return node;
+        }
+
         #region Private methods
+
+        private int AddReverseOrder(ListNode fNode, ListNode sNode, ListNode fNodeHead, ListNode resultNode)
+        {
+            var carry = 0;
+            if (fNode != null || sNode != null)
+            {
+                resultNode.Next = new ListNode();
+                carry = AddReverseOrder(fNode?.Next, sNode?.Next, fNodeHead, resultNode.Next);
+            }
+
+            var fValue = fNode == null ? 0 : int.Parse(fNode.Data);
+            var sValue = sNode == null ? 0 : int.Parse(sNode.Data);
+            var result = fValue + sValue + carry;
+            if (result > 9)
+            {
+                carry = result / 10;
+                result %= 10;
+            }
+            else
+                carry = 0;
+
+            if (fNode != null || sNode != null)
+                resultNode.Data = result.ToString();
+            if (fNode == fNodeHead && carry > 0)
+            {
+                resultNode.Next = new ListNode()
+                {
+                    Data = carry.ToString(),
+                    Next = null
+                };
+            }
+
+            return carry;
+        }
 
         /// <summary>
         /// Time complexity O(n)
