@@ -4,6 +4,9 @@ namespace CrackingTheCodeInterview.LinkedLists
 {
     public class LinkedLists
     {
+        private ListNode HeadListNode { get; set; }
+        private ListNode _leftNode;
+
         /// <summary>
         /// Time complexity O(n^2)
         /// </summary>
@@ -191,7 +194,92 @@ namespace CrackingTheCodeInterview.LinkedLists
             return node;
         }
 
+        /// <summary>
+        /// Time complexity O(n)
+        /// </summary>
+        /// <param name="headListNode"></param>
+        /// <returns></returns>
+        public ListNode ReverseLinkedList(ListNode headListNode)
+        {
+            var currentNode = headListNode;
+            ListNode previousNode = null;
+
+            while (currentNode != null)
+            {
+                var tempNode = currentNode.Next;
+                currentNode.Next = previousNode;
+
+                previousNode = currentNode;
+                currentNode = tempNode;
+            }
+
+            return previousNode;
+        }
+
+        public ListNode FindMiddleNode(ListNode headListNode)
+        {
+            var slowNode = headListNode;
+            var fastNode = headListNode;
+            var times = 0;
+
+            while (fastNode.Next != null)
+            {
+                times++;
+                if (times % 2 == 0)
+                {
+                    times = 0;
+                    slowNode = slowNode.Next;
+                }
+                fastNode = fastNode.Next;
+            }
+
+            return slowNode;
+        }
+
+        /// <summary>
+        /// Time complexity O(n)
+        /// </summary>
+        /// <param name="headListNode"></param>
+        /// <returns></returns>
+        public bool IsPalindrome(ListNode headListNode)
+        {
+            HeadListNode = headListNode;
+
+            //return IsPalindromeUtilRecursive(headListNode);
+
+            var currentNode = headListNode;
+            var middleNode = FindMiddleNode(headListNode);
+            var reverseMiddleHeadNode = ReverseLinkedList(middleNode.Next);
+
+            while (currentNode != null && reverseMiddleHeadNode != null)
+            {
+                if (!reverseMiddleHeadNode.Data.Equals(currentNode.Data))
+                    return false;
+
+                reverseMiddleHeadNode = reverseMiddleHeadNode.Next;
+                currentNode = currentNode.Next;
+            }
+
+            return true;
+        }
+
         #region Private methods
+
+        private bool IsPalindromeUtilRecursive(ListNode rightNode)
+        {
+            _leftNode = HeadListNode;
+            if (rightNode == null)
+                return true;
+
+            var palindrome = IsPalindromeUtilRecursive(rightNode.Next);
+            if (!palindrome)
+                return false;
+
+            palindrome = rightNode.Data.Equals(_leftNode.Data);
+            _leftNode = _leftNode.Next;
+
+            return palindrome;
+        }
 
         private int AddReverseOrder(ListNode fNode, ListNode sNode, ListNode fNodeHead, ref ListNode resultNode)
         {

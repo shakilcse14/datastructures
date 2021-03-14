@@ -93,31 +93,87 @@ namespace CrackingTheCodingInterView.Main
             //        }
             //    }
             //});
-            linkedLists.AddTwoNumbersNonReverseOrder(new ListNode()
-            {
-                Data = "3",
-                Next = new ListNode()
-                {
-                    Data = "4",
-                    Next = new ListNode()
-                    {
-                        Data = "2",
-                        Next = null
-                    }
-                }
-            }, new ListNode()
-            {
-                Data = "4",
-                Next = new ListNode()
-                {
-                    Data = "6",
-                    Next = new ListNode()
-                    {
-                        Data = "5",
-                        Next = null
-                    }
-                }
-            });
+            //linkedLists.AddTwoNumbersNonReverseOrder(new ListNode()
+            //{
+            //    Data = "3",
+            //    Next = new ListNode()
+            //    {
+            //        Data = "4",
+            //        Next = new ListNode()
+            //        {
+            //            Data = "2",
+            //            Next = null
+            //        }
+            //    }
+            //}, new ListNode()
+            //{
+            //    Data = "4",
+            //    Next = new ListNode()
+            //    {
+            //        Data = "6",
+            //        Next = new ListNode()
+            //        {
+            //            Data = "5",
+            //            Next = null
+            //        }
+            //    }
+            //});
+
+            //linkedLists.ReverseLinkedList(new ListNode()
+            //{
+            //    Data = "3",
+            //    Next = new ListNode()
+            //    {
+            //        Data = "4",
+            //        Next = new ListNode()
+            //        {
+            //            Data = "2",
+            //            Next = null
+            //        }
+            //    }
+            //});
+
+            //linkedLists.FindMiddleNode(new ListNode()
+            //{
+            //    Data = "m",
+            //    Next = new ListNode()
+            //    {
+            //        Data = "a",
+            //        Next = new ListNode()
+            //        {
+            //            Data = "d",
+            //            Next = new ListNode()
+            //            {
+            //                Data = "a",
+            //                Next = new ListNode()
+            //                {
+            //                    Data = "m",
+            //                    Next = null
+            //                }
+            //            }
+            //        }
+            //    }
+            //});
+
+            //var isPalindrome = linkedLists.IsPalindrome(new ListNode()
+            //{
+            //    Data = "a",
+            //    Next = new ListNode()
+            //    {
+            //        Data = "b",
+            //        Next = new ListNode()
+            //        {
+            //            Data = "b",
+            //            Next = new ListNode()
+            //            {
+            //                Data = "a",
+            //                Next = null
+            //            }
+            //        }
+            //    }
+            //});
+            //Console.WriteLine($"{isPalindrome}");
+
         }
 
         static void TestArrayAndStrings()
