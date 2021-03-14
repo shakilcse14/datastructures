@@ -174,6 +174,16 @@ namespace CrackingTheCodingInterView.Main
             //});
             //Console.WriteLine($"{isPalindrome}");
 
+            var headNodeS = new ListNode()
+            {
+                Data = "4",
+                Next = new ListNode()
+                {
+                    Data = "1",
+                    Next = toDelete
+                }
+            };
+            linkedLists.IntersectionTwoLists(headNode, headNodeS);
         }
 
         static void TestArrayAndStrings()

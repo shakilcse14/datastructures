@@ -263,6 +263,58 @@ namespace CrackingTheCodeInterview.LinkedLists
             return true;
         }
 
+        public ListNode IntersectionTwoLists(ListNode headF, ListNode headS)
+        {
+            var headFCount = 0;
+            var headSCount = 0;
+            var currentF = headF;
+            var currentS = headS;
+            while (currentF != null)
+            {
+                headFCount++;
+                currentF = currentF.Next;
+            }
+            while (currentS != null)
+            {
+                headSCount++;
+                currentS = currentS.Next;
+            }
+
+            var diff = headFCount - headSCount;
+            currentF = headF;
+            currentS = headS;
+
+            var count = 0;
+            if (diff > 0)
+            {
+                while (count < diff)
+                {
+                    count++;
+                    currentF = currentF.Next;
+                }
+            }
+
+            count = 0;
+            if (diff < 0)
+            {
+                while (count < -diff)
+                {
+                    count++;
+                    currentS = currentS.Next;
+                }
+            }
+
+            while (currentF != null && currentS != null)
+            {
+                if (currentF == currentS)
+                    return currentF;
+                currentF = currentF.Next;
+                currentS = currentS.Next;
+            }
+
+            return null;
+        }
+
         #region Private methods
 
         private bool IsPalindromeUtilRecursive(ListNode rightNode)
