@@ -240,7 +240,7 @@ namespace CrackingTheCodeInterview.LinkedLists
         /// Time complexity O(n)
         /// </summary>
         /// <param name="headListNode"></param>
-        /// <returns></returns>
+        /// <returns></returns>8
         public bool IsPalindrome(ListNode headListNode)
         {
             HeadListNode = headListNode;
@@ -263,6 +263,12 @@ namespace CrackingTheCodeInterview.LinkedLists
             return true;
         }
 
+        /// <summary>
+        /// Time complexity O(n)
+        /// </summary>
+        /// <param name="headF"></param>
+        /// <param name="headS"></param>
+        /// <returns></returns>
         public ListNode IntersectionTwoLists(ListNode headF, ListNode headS)
         {
             var headFCount = 0;
@@ -313,6 +319,47 @@ namespace CrackingTheCodeInterview.LinkedLists
             }
 
             return null;
+        }
+
+        public ListNode CyclePointAt(ListNode headListNode)
+        {
+            var currentNodeSlow = headListNode;
+            var currentNodeFast = headListNode;
+            var count = 0;
+
+            while (currentNodeSlow != null && currentNodeFast != null)
+            {
+                currentNodeFast = currentNodeFast.Next;
+                count++;
+                if (count >= 2)
+                {
+                    count = 0;
+                    currentNodeSlow = currentNodeSlow.Next;
+                }
+
+                if (currentNodeFast == currentNodeSlow)
+                    return currentNodeFast;
+            }
+
+            return null;
+        }
+
+        public ListNode CycleStartingNode(ListNode headListNode)
+        {
+            var cyclePointMet = CyclePointAt(headListNode);
+            if (cyclePointMet != null)
+            {
+                var currentNode = headListNode;
+
+                while (cyclePointMet == currentNode)
+                {
+                    cyclePointMet = cyclePointMet.Next;
+                    currentNode = currentNode.Next;
+                }
+
+            }
+
+            return cyclePointMet;
         }
 
         #region Private methods

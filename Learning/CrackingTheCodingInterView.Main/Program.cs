@@ -174,16 +174,48 @@ namespace CrackingTheCodingInterView.Main
             //});
             //Console.WriteLine($"{isPalindrome}");
 
-            var headNodeS = new ListNode()
+            //var headNodeS = new ListNode()
+            //{
+            //    Data = "4",
+            //    Next = new ListNode()
+            //    {
+            //        Data = "1",
+            //        Next = toDelete
+            //    }
+            //};
+            //linkedLists.IntersectionTwoLists(headNode, headNodeS);
+
+            var nodeF = new ListNode()
             {
-                Data = "4",
+                Data = "3",
+                Next = null
+            };
+            var nodeS = new ListNode()
+            {
+                Data = "5",
                 Next = new ListNode()
                 {
-                    Data = "1",
-                    Next = toDelete
+                    Data = "6",
+                    Next = nodeF
                 }
             };
-            linkedLists.IntersectionTwoLists(headNode, headNodeS);
+            nodeF.Next = nodeS;
+
+            var headNodeS = new ListNode()
+            {
+                Data = "2",
+                Next =
+                    new ListNode()
+                    {
+                        Data = "4",
+                        Next = new ListNode()
+                        {
+                            Data = "1",
+                            Next = nodeS
+                        }
+                    }
+            };
+            linkedLists.CycleStartingNode(headNodeS);
         }
 
         static void TestArrayAndStrings()
