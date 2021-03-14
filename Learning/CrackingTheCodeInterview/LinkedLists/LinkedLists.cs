@@ -335,28 +335,26 @@ namespace CrackingTheCodeInterview.LinkedLists
                 {
                     count = 0;
                     currentNodeSlow = currentNodeSlow.Next;
+                    if (currentNodeFast == currentNodeSlow)
+                        return currentNodeFast;
                 }
-
-                if (currentNodeFast == currentNodeSlow)
-                    return currentNodeFast;
             }
 
             return null;
         }
 
-        public ListNode CycleStartingNode(ListNode headListNode)
+        public ListNode CycleStartingNode(ListNode head)
         {
-            var cyclePointMet = CyclePointAt(headListNode);
+            var cyclePointMet = CyclePointAt(head);
             if (cyclePointMet != null)
             {
-                var currentNode = headListNode;
+                var currentNode = head;
 
-                while (cyclePointMet == currentNode)
+                while (cyclePointMet != currentNode)
                 {
                     cyclePointMet = cyclePointMet.Next;
                     currentNode = currentNode.Next;
                 }
-
             }
 
             return cyclePointMet;

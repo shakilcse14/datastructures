@@ -203,17 +203,8 @@ namespace CrackingTheCodingInterView.Main
 
             var headNodeS = new ListNode()
             {
-                Data = "2",
-                Next =
-                    new ListNode()
-                    {
-                        Data = "4",
-                        Next = new ListNode()
-                        {
-                            Data = "1",
-                            Next = nodeS
-                        }
-                    }
+                Data = "3",
+                Next = nodeS
             };
             linkedLists.CycleStartingNode(headNodeS);
         }
