@@ -186,20 +186,21 @@ namespace CrackingTheCodeInterview.LinkedLists
         public ListNode AddTwoNumbersNonReverseOrder(ListNode firstHeadNode, ListNode secondHeadNode)
         {
             var node = new ListNode();
-            AddReverseOrder(firstHeadNode, secondHeadNode, firstHeadNode, node);
+            AddReverseOrder(firstHeadNode, secondHeadNode, firstHeadNode, ref node);
 
             return node;
         }
 
         #region Private methods
 
-        private int AddReverseOrder(ListNode fNode, ListNode sNode, ListNode fNodeHead, ListNode resultNode)
+        private int AddReverseOrder(ListNode fNode, ListNode sNode, ListNode fNodeHead, ref ListNode resultNode)
         {
             var carry = 0;
             if (fNode != null || sNode != null)
             {
                 resultNode.Next = new ListNode();
-                carry = AddReverseOrder(fNode?.Next, sNode?.Next, fNodeHead, resultNode.Next);
+                var nxt = resultNode.Next;
+                carry = AddReverseOrder(fNode?.Next, sNode?.Next, fNodeHead, ref nxt);
             }
 
             var fValue = fNode == null ? 0 : int.Parse(fNode.Data);
@@ -217,11 +218,12 @@ namespace CrackingTheCodeInterview.LinkedLists
                 resultNode.Data = result.ToString();
             if (fNode == fNodeHead && carry > 0)
             {
-                resultNode.Next = new ListNode()
+                var node = new ListNode()
                 {
                     Data = carry.ToString(),
-                    Next = null
+                    Next = resultNode
                 };
+                resultNode = node;
             }
 
             return carry;
