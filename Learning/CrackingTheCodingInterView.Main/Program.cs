@@ -2,6 +2,7 @@
 using System.Linq;
 using CrackingTheCodeInterview.ArraysAndStrings;
 using CrackingTheCodeInterview.LinkedLists;
+using CrackingTheCodeInterview.StacksAndQueues;
 
 namespace CrackingTheCodingInterView.Main
 {
@@ -10,7 +11,8 @@ namespace CrackingTheCodingInterView.Main
         static void Main(string[] args)
         {
             //TestArrayAndStrings();
-            TestLinkedList();
+            //TestLinkedList();
+            TestStacksAndQueues();
         }
 
         static void TestLinkedList()
@@ -38,32 +40,32 @@ namespace CrackingTheCodingInterView.Main
             //    }
             //};
             //linkedLists.RemoveDuplicatesFromUnSorted(headNode);
-            var toDelete = new ListNode()
-            {
-                Data = "5",
-                Next = new ListNode()
-                {
-                    Data = "3",
-                    Next = new ListNode()
-                    {
-                        Data = "2",
-                        Next = null
-                    }
-                }
-            };
-            var headNode = new ListNode()
-            {
-                Data = "4",
-                Next = new ListNode()
-                {
-                    Data = "1",
-                    Next = new ListNode()
-                    {
-                        Data = "6",
-                        Next = toDelete
-                    }
-                }
-            };
+            //var toDelete = new ListNode()
+            //{
+            //    Data = "5",
+            //    Next = new ListNode()
+            //    {
+            //        Data = "3",
+            //        Next = new ListNode()
+            //        {
+            //            Data = "2",
+            //            Next = null
+            //        }
+            //    }
+            //};
+            //var headNode = new ListNode()
+            //{
+            //    Data = "4",
+            //    Next = new ListNode()
+            //    {
+            //        Data = "1",
+            //        Next = new ListNode()
+            //        {
+            //            Data = "6",
+            //            Next = toDelete
+            //        }
+            //    }
+            //};
 
             //Console.WriteLine(linkedLists.ReturnKthLastElement(headNode, 2));
             //linkedLists.DeleteMiddleNode(toDelete);
@@ -185,28 +187,28 @@ namespace CrackingTheCodingInterView.Main
             //};
             //linkedLists.IntersectionTwoLists(headNode, headNodeS);
 
-            var nodeF = new ListNode()
-            {
-                Data = "3",
-                Next = null
-            };
-            var nodeS = new ListNode()
-            {
-                Data = "5",
-                Next = new ListNode()
-                {
-                    Data = "6",
-                    Next = nodeF
-                }
-            };
-            nodeF.Next = nodeS;
+            //var nodeF = new ListNode()
+            //{
+            //    Data = "3",
+            //    Next = null
+            //};
+            //var nodeS = new ListNode()
+            //{
+            //    Data = "5",
+            //    Next = new ListNode()
+            //    {
+            //        Data = "6",
+            //        Next = nodeF
+            //    }
+            //};
+            //nodeF.Next = nodeS;
 
-            var headNodeS = new ListNode()
-            {
-                Data = "3",
-                Next = nodeS
-            };
-            linkedLists.CycleStartingNode(headNodeS);
+            //var headNodeS = new ListNode()
+            //{
+            //    Data = "3",
+            //    Next = nodeS
+            //};
+            //linkedLists.CycleStartingNode(headNodeS);
         }
 
         static void TestArrayAndStrings()
@@ -248,6 +250,18 @@ namespace CrackingTheCodingInterView.Main
             //    new[] {3, 4, 5, 2},
             //    new[] {1, 3, 1, 5}
             //});
+        }
+
+        static void TestStacksAndQueues()
+        {
+            var stacksAndQueues = new StacksAndQueues();
+            stacksAndQueues.Push(-2);
+            stacksAndQueues.Push(0);
+            stacksAndQueues.Push(-1);
+            Console.WriteLine(stacksAndQueues.GetMin()); // return -3
+            Console.WriteLine(stacksAndQueues.Top());
+            stacksAndQueues.Pop();    // return 0
+            Console.WriteLine(stacksAndQueues.GetMin()); // return -2
         }
     }
 }
