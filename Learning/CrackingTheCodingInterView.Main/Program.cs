@@ -255,13 +255,22 @@ namespace CrackingTheCodingInterView.Main
         static void TestStacksAndQueues()
         {
             var stacksAndQueues = new StacksAndQueues();
-            stacksAndQueues.Push(-2);
-            stacksAndQueues.Push(0);
-            stacksAndQueues.Push(-1);
-            Console.WriteLine(stacksAndQueues.GetMin()); // return -3
-            Console.WriteLine(stacksAndQueues.Top());
-            stacksAndQueues.Pop();    // return 0
-            Console.WriteLine(stacksAndQueues.GetMin()); // return -2
+            //stacksAndQueues.Push(-2);
+            //stacksAndQueues.Push(0);
+            //stacksAndQueues.Push(-1);
+            //Console.WriteLine(stacksAndQueues.GetMin()); // return -3
+            //Console.WriteLine(stacksAndQueues.Top());
+            //stacksAndQueues.Pop();    // return 0
+            //Console.WriteLine(stacksAndQueues.GetMin()); // return -2
+            //var queueUsingStack = new QueueUsingStack();
+            //queueUsingStack.Enqueue(1);
+            //queueUsingStack.Enqueue(2);
+            //queueUsingStack.Enqueue(3);
+            //queueUsingStack.Enqueue(4);
+            //Console.WriteLine(queueUsingStack.Dequeue());
+            //Console.WriteLine(queueUsingStack.Dequeue());
+            //queueUsingStack.Enqueue(5);
+            //Console.WriteLine(queueUsingStack.Dequeue());
         }
     }
 }
