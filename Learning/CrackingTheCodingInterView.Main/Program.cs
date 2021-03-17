@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using CrackingTheCodeInterview.ArraysAndStrings;
 using CrackingTheCodeInterview.LinkedLists;
@@ -254,7 +255,7 @@ namespace CrackingTheCodingInterView.Main
 
         static void TestStacksAndQueues()
         {
-            var stacksAndQueues = new StacksAndQueues();
+            //var stacksAndQueues = new StacksAndQueues();
             //stacksAndQueues.Push(-2);
             //stacksAndQueues.Push(0);
             //stacksAndQueues.Push(-1);
@@ -271,6 +272,31 @@ namespace CrackingTheCodingInterView.Main
             //Console.WriteLine(queueUsingStack.Dequeue());
             //queueUsingStack.Enqueue(5);
             //Console.WriteLine(queueUsingStack.Dequeue());
+
+            //var stack = new Stack<int>();
+            //stack.Push(5);
+            //stack.Push(3);
+            //stack.Push(2);
+            //stack.Push(4);
+            //stack.Push(1);
+
+            //var sortedStack = new SortedStack(stack);
+            //Console.WriteLine(sortedStack.Pop());
+            //Console.WriteLine(sortedStack.Pop());
+            //Console.WriteLine(sortedStack.Pop());
+            //Console.WriteLine(sortedStack.Pop());
+            //Console.WriteLine(sortedStack.Pop());
+
+            var animalShelter = new AnimalShelter();
+            animalShelter.Enqueue(1);
+            animalShelter.Enqueue(1);
+            animalShelter.Enqueue(0);
+            animalShelter.Enqueue(1);
+            animalShelter.Enqueue(1);
+            animalShelter.Enqueue(0);
+
+            Console.WriteLine(animalShelter.DequeueDog().Type);
+            Console.WriteLine(animalShelter.DequeueCat().Type);
         }
     }
 }
