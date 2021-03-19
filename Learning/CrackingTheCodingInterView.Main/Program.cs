@@ -4,6 +4,7 @@ using System.Linq;
 using CrackingTheCodeInterview.ArraysAndStrings;
 using CrackingTheCodeInterview.LinkedLists;
 using CrackingTheCodeInterview.StacksAndQueues;
+using CrackingTheCodeInterview.TreesAndGraphs;
 
 namespace CrackingTheCodingInterView.Main
 {
@@ -13,7 +14,8 @@ namespace CrackingTheCodingInterView.Main
         {
             //TestArrayAndStrings();
             //TestLinkedList();
-            TestStacksAndQueues();
+            //TestStacksAndQueues();
+            TestTreesAndGraphs();
         }
 
         static void TestLinkedList()
@@ -287,16 +289,30 @@ namespace CrackingTheCodingInterView.Main
             //Console.WriteLine(sortedStack.Pop());
             //Console.WriteLine(sortedStack.Pop());
 
-            var animalShelter = new AnimalShelter();
-            animalShelter.Enqueue(1);
-            animalShelter.Enqueue(1);
-            animalShelter.Enqueue(0);
-            animalShelter.Enqueue(1);
-            animalShelter.Enqueue(1);
-            animalShelter.Enqueue(0);
+            //var animalShelter = new AnimalShelter();
+            //animalShelter.Enqueue(1);
+            //animalShelter.Enqueue(1);
+            //animalShelter.Enqueue(0);
+            //animalShelter.Enqueue(1);
+            //animalShelter.Enqueue(1);
+            //animalShelter.Enqueue(0);
 
-            Console.WriteLine(animalShelter.DequeueDog().Type);
-            Console.WriteLine(animalShelter.DequeueCat().Type);
+            //Console.WriteLine(animalShelter.DequeueDog().Type);
+            //Console.WriteLine(animalShelter.DequeueCat().Type);
+        }
+
+        static void TestTreesAndGraphs()
+        {
+            var treesAndGraphs = new TreesAndGraphs();
+            var adjacencyMatrix = new[,]
+            {
+                { 0, 1, 0, 1 },
+                { 1, 0, 1, 0 },
+                { 0, 1, 0, 0 },
+                { 1, 0, 0, 0 }
+            };
+            Console.WriteLine(treesAndGraphs.IsRouteBetweenNodesBfs(adjacencyMatrix, 1, 3));
+            Console.WriteLine(treesAndGraphs.IsRouteBetweenNodesDfs(adjacencyMatrix, 1, 3));
         }
     }
 }
