@@ -304,15 +304,47 @@ namespace CrackingTheCodingInterView.Main
         static void TestTreesAndGraphs()
         {
             var treesAndGraphs = new TreesAndGraphs();
-            var adjacencyMatrix = new[,]
+            //var adjacencyMatrix = new[,]
+            //{
+            //    { 0, 1, 0, 1 },
+            //    { 1, 0, 1, 0 },
+            //    { 0, 1, 0, 0 },
+            //    { 1, 0, 0, 0 }
+            //};
+            //Console.WriteLine(treesAndGraphs.IsRouteBetweenNodesBfs(adjacencyMatrix, 1, 3));
+            //Console.WriteLine(treesAndGraphs.IsRouteBetweenNodesDfs(adjacencyMatrix, 1, 3));
+            //treesAndGraphs.MinimalTree(new[] {-10, -3, 0, 5, 9});
+            var headNode = new TreeNode()
             {
-                { 0, 1, 0, 1 },
-                { 1, 0, 1, 0 },
-                { 0, 1, 0, 0 },
-                { 1, 0, 0, 0 }
+                val = 4,
+                left = new TreeNode()
+                {
+                    val = 2,
+                    left = new TreeNode()
+                    {
+                        val = 1
+                    },
+                    right = new TreeNode()
+                    {
+                        val = 3
+                    }
+                },
+                right = new TreeNode()
+                {
+                    val = 6,
+                    left = new TreeNode()
+                    {
+                        val = 5
+                    },
+                    right = new TreeNode()
+                    {
+                        val = 7
+                    }
+                }
             };
-            Console.WriteLine(treesAndGraphs.IsRouteBetweenNodesBfs(adjacencyMatrix, 1, 3));
-            Console.WriteLine(treesAndGraphs.IsRouteBetweenNodesDfs(adjacencyMatrix, 1, 3));
+            //treesAndGraphs.ListOfDepths(headNode);
+            //Console.WriteLine(treesAndGraphs.IsBalancedTree(headNode));
+            Console.WriteLine(treesAndGraphs.IsValidBinarySearchTree(headNode));
         }
     }
 }
