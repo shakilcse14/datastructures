@@ -5,6 +5,40 @@ namespace CrackingTheCodeInterview.TreesAndGraphs
 {
     public class TreesAndGraphs
     {
+        public List<int> BuildOrder(int [,] adjacencyMatrix)
+        {
+            return null;
+        }
+
+        public TreeNode FindSuccessor(TreeNode node)
+        {
+            TreeNode successorNode;
+            if (node.right == null)
+            {
+                var currentNode = node.parent;
+                var tempNode = node;
+                while (currentNode != null && currentNode.right == tempNode)
+                {
+                    tempNode = currentNode;
+                    currentNode = currentNode.parent;
+                }
+
+                successorNode = currentNode ?? tempNode;
+            }
+            else
+            {
+                var currentNode = node.right;
+                while (currentNode.left != null)
+                {
+                    currentNode = currentNode.left;
+                }
+
+                successorNode = currentNode;
+            }
+
+            return successorNode;
+        }
+
         public bool IsValidBinarySearchTree(TreeNode headNode)
         {
             return IsValid(headNode, double.MinValue, double.MaxValue);
@@ -170,5 +204,6 @@ namespace CrackingTheCodeInterview.TreesAndGraphs
         public int val { get; set; }
         public TreeNode left { get; set; }
         public TreeNode right { get; set; }
+        public TreeNode parent { get; set; }
     }
 }

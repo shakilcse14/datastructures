@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using DataStructures.Core.ArrayList;
 using DataStructures.Core.Backtracking;
 using DataStructures.Core.Backtracking.GraphColoring;
@@ -22,6 +23,7 @@ using DataStructures.Core.Graphs.BFS;
 using DataStructures.Core.Graphs.BST;
 using DataStructures.Core.Graphs.CycleDetection;
 using DataStructures.Core.Graphs.DFS;
+using DataStructures.Core.Graphs.ToplogicalSort;
 using DataStructures.Core.Greedy.Dijkstra;
 using DataStructures.Core.Greedy.MST.Krushkals;
 using DataStructures.Core.Greedy.MST.Prims;
@@ -89,6 +91,8 @@ namespace Learning.Main
 
             //TestDFS();
 
+            TestTopologicalSort();
+
             //TestKnapsackGreedy();
 
             //TestKnapsackDP();
@@ -137,7 +141,7 @@ namespace Learning.Main
 
             //TestEggDrop();
 
-            TestEditDistance();
+            //TestEditDistance();
 
             //TestArticulationPoint();
 
@@ -1133,6 +1137,25 @@ namespace Learning.Main
             Console.WriteLine(bit.ChangeBit(6, 5, 1));
 
             Console.WriteLine(bit.CountSetBits(2321));
+
+            #endregion
+        }
+
+        static void TestTopologicalSort()
+        {
+            #region TopologicalSort
+
+            var topologicalSort = new TopologicalSort();
+            var result = topologicalSort.Sort(new[,]
+            {
+                { 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 1, 0, 0 },
+                { 0, 1, 0, 0, 0, 0 },
+                { 1, 1, 0, 0, 0, 0 },
+                { 1, 0, 1, 0, 0, 0 }
+            });
+            Console.WriteLine(string.Join(',', result));
 
             #endregion
         }
