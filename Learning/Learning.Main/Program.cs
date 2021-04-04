@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using DataStructures.Core.ArrayList;
 using DataStructures.Core.Backtracking;
 using DataStructures.Core.Backtracking.GraphColoring;
@@ -23,7 +22,7 @@ using DataStructures.Core.Graphs.BFS;
 using DataStructures.Core.Graphs.BST;
 using DataStructures.Core.Graphs.CycleDetection;
 using DataStructures.Core.Graphs.DFS;
-using DataStructures.Core.Graphs.ToplogicalSort;
+using DataStructures.Core.Graphs.TopologicalSort;
 using DataStructures.Core.Greedy.Dijkstra;
 using DataStructures.Core.Greedy.MST.Krushkals;
 using DataStructures.Core.Greedy.MST.Prims;

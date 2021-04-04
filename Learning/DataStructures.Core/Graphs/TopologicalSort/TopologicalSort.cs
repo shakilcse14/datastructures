@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DataStructures.Core.Graphs.ToplogicalSort
+namespace DataStructures.Core.Graphs.TopologicalSort
 {
     public class TopologicalSort
     {
-        public TopologicalSort() { }
-
         public List<int> Sort(int [,] adjacencyMatrix)
         {
             var stack = new Stack<int>();

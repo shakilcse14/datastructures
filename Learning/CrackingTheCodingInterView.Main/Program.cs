@@ -314,44 +314,56 @@ namespace CrackingTheCodingInterView.Main
             //Console.WriteLine(treesAndGraphs.IsRouteBetweenNodesBfs(adjacencyMatrix, 1, 3));
             //Console.WriteLine(treesAndGraphs.IsRouteBetweenNodesDfs(adjacencyMatrix, 1, 3));
             //treesAndGraphs.MinimalTree(new[] {-10, -3, 0, 5, 9});
-            var headNode = new TreeNode()
-            {
-                val = 4
-            };
-            headNode.left = new TreeNode()
-            {
-                val = 2,
-                parent = headNode
-            };
-            headNode.left.left = new TreeNode()
-            {
-                val = 1,
-                parent = headNode.left
-            };
-            headNode.left.right = new TreeNode()
-            {
-                val = 3,
-                parent = headNode.left
-            };
-            headNode.right = new TreeNode()
-            {
-                val = 6,
-                parent = headNode
-            };
-            headNode.right.left = new TreeNode()
-            {
-                val = 5,
-                parent = headNode.right
-            };
-            headNode.right.right = new TreeNode()
-            {
-                val = 7,
-                parent = headNode.right
-            };
+            //var headNode = new TreeNode()
+            //{
+            //    val = 4
+            //};
+            //headNode.left = new TreeNode()
+            //{
+            //    val = 2,
+            //    parent = headNode
+            //};
+            //headNode.left.left = new TreeNode()
+            //{
+            //    val = 1,
+            //    parent = headNode.left
+            //};
+            //headNode.left.right = new TreeNode()
+            //{
+            //    val = 3,
+            //    parent = headNode.left
+            //};
+            //headNode.right = new TreeNode()
+            //{
+            //    val = 6,
+            //    parent = headNode
+            //};
+            //headNode.right.left = new TreeNode()
+            //{
+            //    val = 5,
+            //    parent = headNode.right
+            //};
+            //headNode.right.right = new TreeNode()
+            //{
+            //    val = 7,
+            //    parent = headNode.right
+            //};
             //treesAndGraphs.ListOfDepths(headNode);
             //Console.WriteLine(treesAndGraphs.IsBalancedTree(headNode));
             //Console.WriteLine(treesAndGraphs.IsValidBinarySearchTree(headNode));
             //Console.WriteLine(treesAndGraphs.FindSuccessor(headNode.right.left));
+            var adjacencyMatrix = new[,]
+            {
+                { 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 1, 0, 0 },
+                { 0, 1, 0, 0, 0, 0 },
+                { 1, 1, 0, 0, 0, 0 },
+                { 1, 0, 1, 0, 0, 0 }
+            };
+            //var result = treesAndGraphs.BuildOrderDFS(adjacencyMatrix);
+            var result = treesAndGraphs.BuildOrderBFS(adjacencyMatrix);
+            Console.WriteLine($"{string.Join(",", result)}");
         }
     }
 }

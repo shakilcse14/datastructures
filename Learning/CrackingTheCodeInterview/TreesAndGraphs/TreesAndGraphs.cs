@@ -1,11 +1,92 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CrackingTheCodeInterview.TreesAndGraphs
 {
     public class TreesAndGraphs
     {
-        public List<int> BuildOrder(int [,] adjacencyMatrix)
+        public int PathsWithSum(TreeNode heaTreeNode, int totalSum)
+        {
+            return 0;
+        }
+
+        public bool IsSubTree(TreeNode headNodeSource, TreeNode headNodeToMatch)
+        {
+            return false;
+        }
+
+        public List<int> BuildOrderDFS(int [,] adjacencyMatrix)
+        {
+            var visited = new bool[(int) Math.Sqrt(adjacencyMatrix.Length)];
+            var order = new Stack<int>();
+            for (var index = 0; index < Math.Sqrt(adjacencyMatrix.Length); index++)
+            {
+                var track = new Stack<int>();
+                if(!visited[index])
+                    DFS(index, adjacencyMatrix, visited, order, track);
+            }
+
+            return order.ToList();
+        }
+
+        public List<int> BuildOrderBFS(int[,] adjacencyMatrix)
+        {
+            var adjacencyList = new List<List<int>>();
+            var inDegreeList = new int[(int) Math.Sqrt(adjacencyMatrix.Length)];
+            for (var indexI = 0; indexI < Math.Sqrt(adjacencyMatrix.Length); indexI++)
+            {
+                adjacencyList.Add(new List<int>());
+                for (var indexJ = 0; indexJ < Math.Sqrt(adjacencyMatrix.Length); indexJ++)
+                {
+                    if (adjacencyMatrix[indexI, indexJ] == 1)
+                    {
+                        adjacencyList[indexI].Add(indexJ);
+                        inDegreeList[indexJ]++;
+                    }
+                }
+            }
+
+            var queue = new Queue<int>();
+            for (var index = 0; index < inDegreeList.Length; index++)
+            {
+                if(inDegreeList[index] == 0)
+                    queue.Enqueue(index);
+            }
+
+            var count = 0;
+            var result = new List<int>();
+            while (queue.Any())
+            {
+                var node = queue.Dequeue();
+                result.Add(node);
+                count++;
+                foreach (var index in adjacencyList[node])
+                {
+                    inDegreeList[index]--;
+                    if(inDegreeList[index] <= 0)
+                        queue.Enqueue(index);
+                }
+            }
+
+            if(count < Math.Sqrt(adjacencyMatrix.Length))
+                throw new Exception("Cycle detected!! Required DAG.");
+
+            return result;
+        }
+
+        public TreeNode LowestCommonAncestorBTWithParent(TreeNode heaTreeNode, TreeNode nodeA, TreeNode nodeB)
+        {
+            return null;
+        }
+
+        public TreeNode LowestCommonAncestorBTNoParent(TreeNode heaTreeNode, TreeNode nodeA, TreeNode nodeB)
+        {
+            return null;
+        }
+
+        public TreeNode LowestCommonAncestorBST(TreeNode heaTreeNode, TreeNode nodeA, TreeNode nodeB)
         {
             return null;
         }
@@ -107,6 +188,33 @@ namespace CrackingTheCodeInterview.TreesAndGraphs
         }
 
         #region Private methods
+
+        private void DFS(int node, int[,] adjacencyMatrix, bool[] visited, Stack<int> stack, Stack<int> track)
+        {
+            visited[node] = true;
+            for (var index = 0; index < Math.Sqrt(adjacencyMatrix.Length); index++)
+            {
+                if (track.Contains(index) && adjacencyMatrix[node, index] == 1 && visited[index])
+                    throw new Exception("Cycle detected!! Required DAG.");
+
+                if (adjacencyMatrix[node, index] == 1 && !visited[index])
+                {
+                    track.Push(node);
+                    DFS(index, adjacencyMatrix, visited, stack, track);
+                }
+            }
+            stack.Push(node);
+        }
+
+        private bool IsSubTreeRecursion(TreeNode headNodeSource, TreeNode headNodeToMatch)
+        {
+            return false;
+        }
+
+        private bool IsSubTreePreOrder(TreeNode headNodeSource, TreeNode headNodeToMatch)
+        {
+            return false;
+        }
 
         private bool IsValid(TreeNode node, double min, double max)
         {
