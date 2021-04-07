@@ -76,19 +76,67 @@ namespace CrackingTheCodeInterview.TreesAndGraphs
             return result;
         }
 
-        public TreeNode LowestCommonAncestorBTWithParent(TreeNode heaTreeNode, TreeNode nodeA, TreeNode nodeB)
+        public TreeNode LowestCommonAncestorBTWithParent(TreeNode headTreeNode, TreeNode nodeA, TreeNode nodeB)
         {
-            return null;
+            var nodeAHeight = 0;
+            var nodeBHeight = 0;
+            var currentNode = nodeA;
+            while (currentNode != null)
+            {
+                nodeAHeight++;
+                currentNode = currentNode.parent;
+            }
+            currentNode = nodeB;
+            while (currentNode != null)
+            {
+                nodeBHeight++;
+                currentNode = currentNode.parent;
+            }
+
+            var diff = nodeAHeight - nodeBHeight;
+            if (diff != 0)
+            {
+                if (diff > 0)
+                {
+                    var lessHeight = diff;
+                    while (lessHeight > 0 && nodeA != headTreeNode)
+                    {
+                        nodeA = nodeA.parent;
+                        lessHeight--;
+                    }
+                }
+                else
+                {
+                    var lessHeight = MathF.Abs(diff);
+                    while (lessHeight > 0 && nodeB != headTreeNode)
+                    {
+                        nodeB = nodeB.parent;
+                        lessHeight--;
+                    }
+                }
+            }
+
+            var lca = nodeA;
+            while (nodeA != nodeB && nodeA != null && nodeB != null)
+            {
+                nodeA = nodeA.parent;
+                nodeB = nodeB.parent;
+                lca = nodeA;
+            }
+
+            return lca;
         }
 
-        public TreeNode LowestCommonAncestorBTNoParent(TreeNode heaTreeNode, TreeNode nodeA, TreeNode nodeB)
+        public TreeNode LowestCommonAncestorBTNoParent(TreeNode headTreeNode, TreeNode nodeA, TreeNode nodeB)
         {
-            return null;
+            var lca = GoDepth(headTreeNode, nodeA, nodeB);
+            return lca;
         }
 
-        public TreeNode LowestCommonAncestorBST(TreeNode heaTreeNode, TreeNode nodeA, TreeNode nodeB)
+        public TreeNode LowestCommonAncestorBST(TreeNode headTreeNode, TreeNode nodeA, TreeNode nodeB)
         {
-            return null;
+            var lca = GoDepthBST(headTreeNode, nodeA, nodeB);
+            return lca;
         }
 
         public TreeNode FindSuccessor(TreeNode node)
@@ -204,6 +252,45 @@ namespace CrackingTheCodeInterview.TreesAndGraphs
                 }
             }
             stack.Push(node);
+        }
+
+        private TreeNode GoDepth(TreeNode node, TreeNode nodeA, TreeNode nodeB)
+        {
+            if (node == null)
+                return null;
+
+            if (node == nodeA || node == nodeB)
+                return node;
+
+            TreeNode left = null;
+            TreeNode right = null;
+
+            if (node.left == nodeA || node.left == nodeB)
+                left = node.left == nodeA ? nodeA : nodeB;
+            if (node.right == nodeA || node.right == nodeB)
+                right = node.right == nodeA ? nodeA : nodeB;
+
+            if(left == null)
+                left = GoDepth(node.left, nodeA, nodeB);
+            if(right == null)
+                right = GoDepth(node.right, nodeA, nodeB);
+            if (left != null && right != null)
+                return node;
+
+            return left ?? right;
+        }
+
+        private TreeNode GoDepthBST(TreeNode node, TreeNode nodeA, TreeNode nodeB)
+        {
+            if (node.val == nodeA.val || node.val == nodeB.val)
+                return node;
+
+            if (node.val > nodeA.val && node.val > nodeB.val)
+                return GoDepthBST(node.left, nodeA, nodeB);
+            if (node.val < nodeA.val && node.val < nodeB.val)
+                return GoDepthBST(node.right, nodeA, nodeB);
+
+            return node;
         }
 
         private bool IsSubTreeRecursion(TreeNode headNodeSource, TreeNode headNodeToMatch)
