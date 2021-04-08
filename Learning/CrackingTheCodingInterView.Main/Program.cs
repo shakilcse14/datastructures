@@ -398,6 +398,8 @@ namespace CrackingTheCodingInterView.Main
             //        val = 2
             //    }
             //});
+            //treesAndGraphs.ConvertMirror(headNode);
+            Console.WriteLine(treesAndGraphs.IsMirror(headNode));
         }
     }
 }

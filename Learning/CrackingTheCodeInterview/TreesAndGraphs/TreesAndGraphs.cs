@@ -14,12 +14,13 @@ namespace CrackingTheCodeInterview.TreesAndGraphs
 
         public TreeNode ConvertMirror(TreeNode headTreeNode)
         {
-            return null;
+            var node = ConvertToMirror(headTreeNode);
+            return node;
         }
 
-        public bool IsMirror(TreeNode headTreeNodeFirst, TreeNode headTreeNodeSecond)
+        public bool IsMirror(TreeNode headTreeNode)
         {
-            return false;
+            return HasMirror(headTreeNode.left, headTreeNode.right);
         }
 
         public bool IsSubTree(TreeNode headNodeSource, TreeNode headNodeToMatch)
@@ -251,6 +252,35 @@ namespace CrackingTheCodeInterview.TreesAndGraphs
         }
 
         #region Private methods
+
+        private bool HasMirror(TreeNode nodeLeft, TreeNode nodeRight)
+        {
+            if (nodeLeft == null && nodeRight == null)
+                return true;
+
+            if (nodeLeft == null || nodeRight == null)
+                return false;
+
+            if (nodeLeft.val.Equals(nodeRight.val))
+                return HasMirror(nodeLeft.left, nodeRight.right) && 
+                       HasMirror(nodeLeft.right, nodeRight.left);
+
+            return false;
+        }
+
+        private TreeNode ConvertToMirror(TreeNode node)
+        {
+            if(node == null)
+                return null;
+
+            var right = ConvertToMirror(node.right);
+            var left = ConvertToMirror(node.left);
+
+            node.left = right;
+            node.right = left;
+
+            return node;
+        }
 
         private void DFS(int node, int[,] adjacencyMatrix, bool[] visited, Stack<int> stack, Stack<int> track)
         {
