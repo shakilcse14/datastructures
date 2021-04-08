@@ -12,9 +12,24 @@ namespace CrackingTheCodeInterview.TreesAndGraphs
             return 0;
         }
 
-        public bool IsSubTree(TreeNode headNodeSource, TreeNode headNodeToMatch)
+        public TreeNode ConvertMirror(TreeNode headTreeNode)
+        {
+            return null;
+        }
+
+        public bool IsMirror(TreeNode headTreeNodeFirst, TreeNode headTreeNodeSecond)
         {
             return false;
+        }
+
+        public bool IsSubTree(TreeNode headNodeSource, TreeNode headNodeToMatch)
+        {
+            //var source = SubTreePreOrder(headNodeSource);
+            //var target = SubTreePreOrder(headNodeToMatch);
+            
+            //return source.Contains(target);
+            var isSub = IsSubTreeRecursion(headNodeSource, headNodeToMatch);
+            return isSub;
         }
 
         public List<int> BuildOrderDFS(int [,] adjacencyMatrix)
@@ -293,14 +308,35 @@ namespace CrackingTheCodeInterview.TreesAndGraphs
             return node;
         }
 
-        private bool IsSubTreeRecursion(TreeNode headNodeSource, TreeNode headNodeToMatch)
+        private bool IsEqual(TreeNode nodeA, TreeNode nodeB)
         {
-            return false;
+            if (nodeA == null && nodeB == null)
+                return true;
+            if (nodeA == null || nodeB == null)
+                return false;
+
+            return nodeA.val.Equals(nodeB.val) && 
+                IsEqual(nodeA.left, nodeB.left) && 
+                IsEqual(nodeA.right, nodeB.right);
         }
 
-        private bool IsSubTreePreOrder(TreeNode headNodeSource, TreeNode headNodeToMatch)
+        private bool IsSubTreeRecursion(TreeNode headNodeSource, TreeNode headNodeToMatch)
         {
-            return false;
+            return headNodeSource != null && (IsEqual(headNodeSource, headNodeToMatch) ||
+                                              IsSubTreeRecursion(headNodeSource.left, headNodeToMatch) ||
+                                              IsSubTreeRecursion(headNodeSource.right, headNodeToMatch));
+        }
+
+        private string SubTreePreOrder(TreeNode headNodeSource)
+        {
+            if (headNodeSource == null)
+                return ".";
+
+            var value = headNodeSource.val.ToString();
+            value += SubTreePreOrder(headNodeSource.left);
+            value += SubTreePreOrder(headNodeSource.right);
+
+            return value;
         }
 
         private bool IsValid(TreeNode node, double min, double max)

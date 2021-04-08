@@ -333,12 +333,12 @@ namespace CrackingTheCodingInterView.Main
                 val = 3,
                 parent = headNode.left
             };
-            headNode.right = new TreeNode()
+            var nodeB = headNode.right = new TreeNode()
             {
                 val = 6,
                 parent = headNode
             };
-            var nodeB = headNode.right.left = new TreeNode()
+            headNode.right.left = new TreeNode()
             {
                 val = 5,
                 parent = headNode.right
@@ -366,7 +366,38 @@ namespace CrackingTheCodingInterView.Main
             //Console.WriteLine($"{string.Join(",", result)}");
             //treesAndGraphs.LowestCommonAncestorBTWithParent(headNode, nodeA, nodeB);
             //treesAndGraphs.LowestCommonAncestorBTNoParent(headNode, nodeA, nodeB);
-            treesAndGraphs.LowestCommonAncestorBST(headNode, nodeA, nodeB);
+            //treesAndGraphs.LowestCommonAncestorBST(headNode, nodeA, nodeB);
+            //treesAndGraphs.IsSubTree(new TreeNode()
+            //{
+            //    val = 3,
+            //    left = new TreeNode()
+            //    {
+            //        val = 4,
+            //        left = new TreeNode()
+            //        {
+            //            val = 1
+            //        }
+            //    },
+            //    right = new TreeNode()
+            //    {
+            //        val = 5,
+            //        left = new TreeNode()
+            //        {
+            //            val = 2
+            //        }
+            //    }
+            //}, new TreeNode()
+            //{
+            //    val = 3,
+            //    left = new TreeNode()
+            //    {
+            //        val = 1
+            //    },
+            //    right = new TreeNode()
+            //    {
+            //        val = 2
+            //    }
+            //});
         }
     }
 }
