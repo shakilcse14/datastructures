@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CrackingTheCodeInterview.ArraysAndStrings;
+using CrackingTheCodeInterview.BitManipulation;
 using CrackingTheCodeInterview.LinkedLists;
 using CrackingTheCodeInterview.StacksAndQueues;
 using CrackingTheCodeInterview.TreesAndGraphs;
@@ -15,7 +16,8 @@ namespace CrackingTheCodingInterView.Main
             //TestArrayAndStrings();
             //TestLinkedList();
             //TestStacksAndQueues();
-            TestTreesAndGraphs();
+            //TestTreesAndGraphs();
+            TestBitManipulations();
         }
 
         static void TestLinkedList()
@@ -399,7 +401,108 @@ namespace CrackingTheCodingInterView.Main
             //    }
             //});
             //treesAndGraphs.ConvertMirror(headNode);
-            Console.WriteLine(treesAndGraphs.IsMirror(headNode));
+            //Console.WriteLine(treesAndGraphs.IsMirror(headNode));
+            //Console.WriteLine(treesAndGraphs.PathsWithSum(new TreeNode()
+            //{
+            //    val = 5,
+            //    left = new TreeNode()
+            //    {
+            //        val = 4,
+            //        left = new TreeNode()
+            //        {
+            //            val = 11,
+            //            left = new TreeNode()
+            //            {
+            //                val = 7
+            //            },
+            //            right = new TreeNode()
+            //            {
+            //                val = 2
+            //            }
+            //        }
+            //    },
+            //    right = new TreeNode()
+            //    {
+            //        val = 8,
+            //        left = new TreeNode()
+            //        {
+            //            val = 13
+            //        },
+            //        right = new TreeNode()
+            //        {
+            //            val = 4,
+            //            left = new TreeNode()
+            //            {
+            //                val = 5
+            //            },
+            //            right = new TreeNode()
+            //            {
+            //                val = 1
+            //            }
+            //        }
+            //    }
+            //}, 22));
+            //Console.WriteLine(treesAndGraphs.PathsWithSum(new TreeNode()
+            //{
+            //    val = 10,
+            //    left = new TreeNode()
+            //    {
+            //        val = 5,
+            //        left = new TreeNode()
+            //        {
+            //            val = 3,
+            //            left = new TreeNode()
+            //            {
+            //                val = 3
+            //            },
+            //            right = new TreeNode()
+            //            {
+            //                val = -2
+            //            }
+            //        },
+            //        right = new TreeNode()
+            //        {
+            //            val = 2,
+            //            right = new TreeNode()
+            //            {
+            //                val = 1
+            //            }
+            //        }
+            //    },
+            //    right = new TreeNode()
+            //    {
+            //        val = -3,
+            //        right = new TreeNode()
+            //        {
+            //            val = 11
+            //        }
+            //    }
+            //}, 8));
+
+            Console.WriteLine(treesAndGraphs.PathsWithSum(new TreeNode()
+            {
+                val = 1
+            }, 0));
+        }
+
+        static void TestBitManipulations()
+        {
+            var bitManipulation = new BitManipulation();
+
+            //Console.WriteLine(bitManipulation.Insertion(123, 4, 6, 2));
+            //Console.WriteLine(bitManipulation.BinaryToString(0.25));
+            //Console.WriteLine(bitManipulation.FlipBitToWin(1775));
+            //Console.WriteLine(bitManipulation.NextNumberLargest(5));
+            //Console.WriteLine(bitManipulation.NextNumberSmallest(5));
+            //Console.WriteLine(bitManipulation.ConversionBit(29, 15));
+            //Console.WriteLine(bitManipulation.PairwiseSwap(29));
+            //Console.WriteLine(bitManipulation.IsPowerOfTwo(16));
+            //Console.WriteLine(bitManipulation.IsPowerOfFour(64));
+            //Console.WriteLine(bitManipulation.SumOfTwoIntegers(13, 26));
+            //Console.WriteLine(bitManipulation.MissingNumber(new []{0, 1, 4, 3}));
+            //Console.WriteLine(bitManipulation.LargestPowerOfTwo(30));
+            //Console.WriteLine(bitManipulation.ReverseBit(43261596));
+            Console.WriteLine(bitManipulation.BitWiseAndNumbers(5, 7));
         }
     }
 }

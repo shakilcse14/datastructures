@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,8 +6,20 @@ namespace CrackingTheCodeInterview.TreesAndGraphs
 {
     public class TreesAndGraphs
     {
-        public int PathsWithSum(TreeNode heaTreeNode, int totalSum)
+        IList<IList<int>> _global = new List<IList<int>>();
+        private int _result = 0;
+
+        public List<List<int>> BstSequence(TreeNode headTreeNode)
         {
+            return null;
+        }
+
+        public int PathsWithSum(TreeNode headTreeNode, int totalSum)
+        {
+            //var hasPathWithSum = HasPathSum(headTreeNode, 0, totalSum);
+            //GetPathSum(headTreeNode, 0, 22, new List<int>());
+            //var result = PathSumTotal(headTreeNode, 8);
+            OptimizedPathSumTotal(headTreeNode, 0, totalSum, new Dictionary<int, int>());
             return 0;
         }
 
@@ -252,6 +263,82 @@ namespace CrackingTheCodeInterview.TreesAndGraphs
         }
 
         #region Private methods
+
+        private int CountPathSum(TreeNode currentNode, int currentSum, int targetSum)
+        {
+            if (currentNode == null)
+                return 0;
+
+            return (currentNode.val + currentSum == targetSum ? 1 : 0) +
+                   CountPathSum(currentNode.left, currentNode.val + currentSum, targetSum) +
+                   CountPathSum(currentNode.right, currentNode.val + currentSum, targetSum);
+        }
+
+        private int PathSumTotal(TreeNode currentNode, int targetSum)
+        {
+            if (currentNode == null)
+                return 0;
+
+            return CountPathSum(currentNode, 0, targetSum) +
+                   PathSumTotal(currentNode.left, targetSum) +
+                   PathSumTotal(currentNode.right, targetSum);
+        }
+
+        private void OptimizedPathSumTotal(TreeNode currentNode, int currentSum, int targetSum,
+            Dictionary<int, int> count)
+        {
+            if (currentNode == null)
+                return;
+
+            currentSum += currentNode.val;
+            if (currentSum == targetSum)
+                _result++;
+
+            if (count.ContainsKey(currentSum - targetSum))
+                _result += count[currentSum - targetSum];
+            else
+                count.Add(currentSum - targetSum, 0);
+
+            if (!count.ContainsKey(currentSum))
+                count.Add(currentSum, 1);
+            else
+                count[currentSum]++;
+
+            OptimizedPathSumTotal(currentNode.left, currentSum, targetSum, count);
+            OptimizedPathSumTotal(currentNode.right, currentSum, targetSum, count);
+            count[currentSum] = count[currentSum] - 1;
+        }
+
+        private void GetPathSum(TreeNode currentNode, int currentSum, int total, List<int> items)
+        {
+            if (currentNode == null)
+                return;
+
+            items.Add(currentNode.val);
+            if (currentNode.left == null && currentNode.right == null)
+            {
+                if (currentNode.val + currentSum == total)
+                    _global.Add(items);
+                else
+                    return;
+            }
+
+            GetPathSum(currentNode.left, currentNode.val + currentSum, total, new List<int>(items));
+            
+            GetPathSum(currentNode.right, currentNode.val + currentSum, total, new List<int>(items));
+        }
+
+        private bool HasPathSum(TreeNode currentNode, int currentSum, int targetSum)
+        {
+            if (currentNode == null)
+                return false;
+            // Leaf node
+            else if (currentNode.left == null && currentNode.right == null)
+                return (currentSum + currentNode.val) == targetSum;
+            else
+                return HasPathSum(currentNode.left, currentSum + currentNode.val, targetSum) ||
+                       HasPathSum(currentNode.right, currentSum + currentNode.val, targetSum);
+        }
 
         private bool HasMirror(TreeNode nodeLeft, TreeNode nodeRight)
         {
