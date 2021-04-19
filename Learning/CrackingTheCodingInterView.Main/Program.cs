@@ -502,7 +502,8 @@ namespace CrackingTheCodingInterView.Main
             //Console.WriteLine(bitManipulation.MissingNumber(new []{0, 1, 4, 3}));
             //Console.WriteLine(bitManipulation.LargestPowerOfTwo(30));
             //Console.WriteLine(bitManipulation.ReverseBit(43261596));
-            Console.WriteLine(bitManipulation.BitWiseAndNumbers(5, 7));
+            //Console.WriteLine(bitManipulation.BitWiseAndNumbers(5, 7));
+            Console.WriteLine(bitManipulation.CountBitOne(67));
         }
     }
 }

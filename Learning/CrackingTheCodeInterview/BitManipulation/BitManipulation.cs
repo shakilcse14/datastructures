@@ -208,8 +208,7 @@ namespace CrackingTheCodeInterview.BitManipulation
             var count = 0;
             while (number != 0)
             {
-                if ((number & 1) == 1)
-                    count++;
+                count++;
                 number &= (number - 1);
             }
 
