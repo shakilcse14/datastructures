@@ -503,7 +503,11 @@ namespace CrackingTheCodingInterView.Main
             //Console.WriteLine(bitManipulation.LargestPowerOfTwo(30));
             //Console.WriteLine(bitManipulation.ReverseBit(43261596));
             //Console.WriteLine(bitManipulation.BitWiseAndNumbers(5, 7));
-            Console.WriteLine(bitManipulation.CountBitOne(67));
+            //Console.WriteLine(bitManipulation.CountBitOne(67));
+            //Console.WriteLine($"{string.Join(',', bitManipulation.FindSequence("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT", 10, 2))}");
+            //Console.WriteLine(bitManipulation.FindMajorityElement(new[] {2, 2, 1, 2, 2, 3}));
+            //Console.WriteLine(bitManipulation.SingleNumberII(new[] {2, 2, 6, 3, 2, 3, 3}));
+            Console.WriteLine(bitManipulation.SingleNumberIII(new[] {2, 2, 6, 1, 2, 3, 3}));
         }
     }
 }

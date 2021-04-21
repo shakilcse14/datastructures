@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace CrackingTheCodeInterview.BitManipulation
@@ -213,6 +214,81 @@ namespace CrackingTheCodeInterview.BitManipulation
             }
 
             return count;
+        }
+
+        public List<string> FindSequence(string sequenceString, int numberOfLetters, int occurence)
+        {
+            var result = new List<string>();
+            var sequenceStore = new Dictionary<string, int>();
+            for (var index = 0; index < sequenceString.Length - numberOfLetters; index++)
+            {
+                var sequence = sequenceString.Substring(index, numberOfLetters);
+                if (sequenceStore.ContainsKey(sequence))
+                {
+                    sequenceStore[sequence]++;
+                    if (sequenceStore[sequence] == occurence)
+                        result.Add(sequence);
+                }
+                else
+                    sequenceStore.Add(sequence, 1);
+            }
+
+            return result;
+        }
+
+        public int FindMajorityElement(int[] elements)
+        {
+            var number = elements[0];
+            var count = 1;
+            for (var index = 1; index < elements.Length; index++)
+            {
+                if (number == elements[index])
+                    count++;
+                else
+                {
+                    count--;
+                    if (count <= 0)
+                    {
+                        number = elements[index];
+                        count = 1;
+                    }
+                }
+            }
+
+            count = 0;
+            foreach (var element in elements)
+            {
+                if (element == number)
+                    count++;
+            }
+
+            return count > (elements.Length / 2) ? number : int.MinValue;
+        }
+
+        public int SingleNumberII(int[] elements)
+        {
+            var result = 0;
+            for (var bit = 0; bit < 32; bit++)
+            {
+                var countOne = 0;
+                for (var index = 0; index < elements.Length; index++)
+                {
+                    if ((elements[index] & 1) == 1)
+                        countOne++;
+                    elements[index] >>= 1;
+                }
+
+                if (countOne % 3 != 0)
+                    result += 1 << bit;
+            }
+
+            return result;
+        }
+
+        public int SingleNumberIII(int[] elements)
+        {
+
+            return 0;
         }
 
         #region Private Methods
