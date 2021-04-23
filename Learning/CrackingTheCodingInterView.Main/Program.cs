@@ -507,7 +507,8 @@ namespace CrackingTheCodingInterView.Main
             //Console.WriteLine($"{string.Join(',', bitManipulation.FindSequence("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT", 10, 2))}");
             //Console.WriteLine(bitManipulation.FindMajorityElement(new[] {2, 2, 1, 2, 2, 3}));
             //Console.WriteLine(bitManipulation.SingleNumberII(new[] {2, 2, 6, 3, 2, 3, 3}));
-            Console.WriteLine(bitManipulation.SingleNumberIII(new[] {2, 2, 6, 1, 2, 3, 3}));
+            //Console.WriteLine($"{string.Join(",", bitManipulation.SingleNumberIII(new[] { 2, 2, 6, 1, 3, 3 }))}");
+            //Console.WriteLine($"{string.Join("\n", bitManipulation.FindAllSubSets(new[] { 'A', 'B', 'C', 'D' }).Select(x => $"{string.Join(",", x)}"))}");
         }
     }
 }

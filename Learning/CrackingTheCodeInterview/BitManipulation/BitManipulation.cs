@@ -285,10 +285,44 @@ namespace CrackingTheCodeInterview.BitManipulation
             return result;
         }
 
-        public int SingleNumberIII(int[] elements)
+        public int[] SingleNumberIII(int[] elements)
         {
+            var result = elements[0];
+            for (var index = 1; index < elements.Length; index++)
+            {
+                result ^= elements[index];
+            }
 
-            return 0;
+            var differenceBit = result & -result; // 00010
+            var tempResult = result;
+            foreach (var number in elements)
+            {
+                if ((differenceBit & number) == 0)
+                    result ^= number;
+            }
+
+            return new[] {result, tempResult ^ result};
+        }
+
+        public List<List<char>> FindAllSubSets(char[] chars)
+        {
+            var result = new List<List<char>>();
+            for (var number = 0; number < 1 << chars.Length; number++)
+            {
+                var list = new List<char>();
+                for (var position = 0; position < chars.Length; position++)
+                {
+                    var mask = 1 << position;
+                    if ((number & mask) != 0)
+                        list.Add(chars[position]);
+                }
+
+                if (list.Count == 0)
+                    list.Add('.');
+                result.Add(list);
+            }
+
+            return result;
         }
 
         #region Private Methods
