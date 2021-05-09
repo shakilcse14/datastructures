@@ -4,6 +4,7 @@ using System.Linq;
 using CrackingTheCodeInterview.ArraysAndStrings;
 using CrackingTheCodeInterview.BitManipulation;
 using CrackingTheCodeInterview.LinkedLists;
+using CrackingTheCodeInterview.RecursionAndDynamicProgramming;
 using CrackingTheCodeInterview.StacksAndQueues;
 using CrackingTheCodeInterview.TreesAndGraphs;
 
@@ -17,7 +18,8 @@ namespace CrackingTheCodingInterView.Main
             //TestLinkedList();
             //TestStacksAndQueues();
             //TestTreesAndGraphs();
-            TestBitManipulations();
+            //TestBitManipulations();
+            TestRecursionAndDynamicProgramming();
         }
 
         static void TestLinkedList()
@@ -509,6 +511,31 @@ namespace CrackingTheCodingInterView.Main
             //Console.WriteLine(bitManipulation.SingleNumberII(new[] {2, 2, 6, 3, 2, 3, 3}));
             //Console.WriteLine($"{string.Join(",", bitManipulation.SingleNumberIII(new[] { 2, 2, 6, 1, 3, 3 }))}");
             //Console.WriteLine($"{string.Join("\n", bitManipulation.FindAllSubSets(new[] { 'A', 'B', 'C', 'D' }).Select(x => $"{string.Join(",", x)}"))}");
+        }
+
+        static void TestRecursionAndDynamicProgramming()
+        {
+            var recursionDp = new RecursionAndDynamicProgramming();
+            //Console.WriteLine(recursionDp.FindTripleSteps(5));
+            //recursionDp.RobotInGrid();
+            //Console.WriteLine($"{recursionDp.MagicIndex(new []{ -10, -5, 2, 2, 2, 3, 4, 7, 9, 12, 13 })}");
+            //Console.WriteLine($"{string.Join('\n', recursionDp.PowerSet(new[] { 'A', 'B', 'C' }))}");
+            //Console.WriteLine($"{recursionDp.RecursiveMultiply(32, 7)}");
+            //recursionDp.TowersOfHanoi(3);
+            //recursionDp.DistinctStringPermutations("ABCD");
+            //recursionDp.StringPermutations("ABCA");
+            //recursionDp.Parens(3);
+            //recursionDp.PaintFill(new[,]
+            //{
+            //    {1, 1, 1},
+            //    {1, 1, 0},
+            //    {1, 0, 1}
+            //}, new Point
+            //{
+            //    Row = 1,
+            //    Column = 1
+            //}, 2);
+            //Console.WriteLine($"{recursionDp.ChangeCoins(new []{1, 5, 10}, 8)}");
         }
     }
 }
