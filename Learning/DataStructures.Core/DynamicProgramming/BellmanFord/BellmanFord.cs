@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace DataStructures.Core.DynamicProgramming.BellmanFord
 {
     /// <summary>
-    /// Single source shortest path (Negative, Acyclic). Greedy approach.
+    /// Single source shortest path (Negative, Acyclic).
     /// </summary>
     public class BellmanFord
     {

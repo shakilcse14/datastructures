@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DataStructures.Core.ArrayList;
 using DataStructures.Core.Backtracking;
 using DataStructures.Core.Backtracking.GraphColoring;
@@ -32,7 +33,6 @@ using DataStructures.Core.LinkedList;
 using DataStructures.Core.NumberTheory.GCD;
 using DataStructures.Core.NumberTheory.LCM;
 using DataStructures.Core.NumberTheory.PrimeNumber;
-using DataStructures.Core.Queue;
 using DataStructures.Core.Search.BinarySearch;
 using DataStructures.Core.Sorting.BubbleSort;
 using DataStructures.Core.Sorting.HeapSort;
@@ -40,11 +40,11 @@ using DataStructures.Core.Sorting.InsertionSort;
 using DataStructures.Core.Sorting.MergeSort;
 using DataStructures.Core.Sorting.QuickSort;
 using DataStructures.Core.Sorting.SelectionSort;
-using DataStructures.Core.Stack;
 using DataStructures.Core.Trees.AVLTree;
 using DataStructures.Core.Trees.BinarySearchTree;
 using DataStructures.Core.Trees.BinaryTree;
 using DataStructures.Core.Trees.Contracts;
+using DataStructures.Core.Trees.SegmentTree;
 using DataStructures.Core.Trie;
 using Knapsack = DataStructures.Core.Greedy.Knapsack.Knapsack;
 
@@ -52,6 +52,7 @@ namespace Learning.Main
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             //TestArrayList();
@@ -90,7 +91,7 @@ namespace Learning.Main
 
             //TestDFS();
 
-            TestTopologicalSort();
+            //TestTopologicalSort();
 
             //TestKnapsackGreedy();
 
@@ -153,6 +154,8 @@ namespace Learning.Main
             //TestAVLTree();
 
             //TestBits();
+
+            //TestSegmentTree();
 
             Console.ReadLine();
         }
@@ -397,7 +400,7 @@ namespace Learning.Main
         {
             #region Stack
 
-            var stack = new Stack<int>();
+            var stack = new DataStructures.Core.Stack.Stack<int>();
             stack.Push(10);
             stack.Push(20);
             stack.Push(30);
@@ -411,7 +414,7 @@ namespace Learning.Main
         {
             #region Queue
 
-            var queue = new Queue<int>();
+            var queue = new DataStructures.Core.Queue.Queue<int>();
             queue.Enqueue(10);
             queue.Enqueue(20);
             queue.Enqueue(30);
@@ -1155,6 +1158,20 @@ namespace Learning.Main
                 { 1, 0, 1, 0, 0, 0 }
             });
             Console.WriteLine(string.Join(',', result));
+
+            #endregion
+        }
+
+        static void TestSegmentTree()
+        {
+            #region SegmentTree
+
+            var segmentTree = new SegmentTree(new []{ 1, 3, 5, 7, 9, 11 });
+            Console.WriteLine(string.Join(',', segmentTree.RunningSum));
+            Console.WriteLine(segmentTree.GetSum(1, 3));
+            segmentTree.Update(1, 10);
+            Console.WriteLine(string.Join(',', segmentTree.RunningSum));
+            Console.WriteLine(segmentTree.GetSum(1, 3));
 
             #endregion
         }
