@@ -34,6 +34,7 @@ using DataStructures.Core.NumberTheory.GCD;
 using DataStructures.Core.NumberTheory.LCM;
 using DataStructures.Core.NumberTheory.PrimeNumber;
 using DataStructures.Core.Search.BinarySearch;
+using DataStructures.Core.Sorting.CountingSort;
 using DataStructures.Core.Sorting.BubbleSort;
 using DataStructures.Core.Sorting.HeapSort;
 using DataStructures.Core.Sorting.InsertionSort;
@@ -47,12 +48,12 @@ using DataStructures.Core.Trees.Contracts;
 using DataStructures.Core.Trees.SegmentTree;
 using DataStructures.Core.Trie;
 using Knapsack = DataStructures.Core.Greedy.Knapsack.Knapsack;
+using DataStructures.Core.Sorting.RadixSort;
 
 namespace Learning.Main
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             //TestArrayList();
@@ -157,7 +158,33 @@ namespace Learning.Main
 
             //TestSegmentTree();
 
+            //TestCountingSort();
+
+            TestRadixSort();
+
             Console.ReadLine();
+        }
+
+        static void TestRadixSort()
+        {
+            #region RadixSort
+
+            var radixSort = new RadixSort();
+            var sortedArray = radixSort.Sort(new int[] { 170, 45, 75, 90, 802, 24, 2, 66 });
+            Console.WriteLine("[{0}]", string.Join(", ", sortedArray));
+
+            #endregion
+        }
+
+        static void TestCountingSort()
+        {
+            #region CountingSort
+
+            var countingSort = new CountingSort();
+            var sortedArray = countingSort.Sort(new int[] { 170, 45, 75, 90, 802, 24, 2, 66 });
+            Console.WriteLine("[{0}]", string.Join(", ", sortedArray));
+
+            #endregion
         }
 
         static void TestSinglyLinkedList()
